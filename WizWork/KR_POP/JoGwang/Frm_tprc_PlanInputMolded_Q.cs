@@ -99,6 +99,8 @@ namespace WizWork
             chkPLotID.Checked = false;
             txtPLotID.Select();
             txtPLotID.Focus();
+
+            timer1.Enabled = true; //2022-01-20
         }
 
         // 금월버튼. (사번별 작지 월단위 일괄등록에 따라 필요해진 버튼.)
@@ -1127,6 +1129,9 @@ namespace WizWork
         {
             procQuery();
             WorkingMachine_btnSetting();
+
+            //WorkingMachine_WorkingQty();
+            timer1.Enabled = true;
         }
 
         private void chkInsDate_Click(object sender, EventArgs e)
@@ -1576,6 +1581,7 @@ namespace WizWork
                 string PersonName = string.Empty;
                 string Machine_Name = string.Empty;
                 string Process_Name = string.Empty;
+                string WorkQty = string.Empty;
 
 
                 DataTable dt3 = DataStore.Instance.ProcedureToDataTable("xp_WizWork_sNowWorking", null, false);
@@ -1587,81 +1593,92 @@ namespace WizWork
                     Lotid = dr["LabelID"].ToString().Trim();
                     Machine_Name = dr["MachineNo"].ToString().Trim();
                     Process_Name = dr["Process"].ToString().Trim();
+                    WorkQty = dr["WorkQty"].ToString().Trim();
 
 
-                    // 작업 진행중 이라고 판단한 이 아이의 현재 MACHINE_NO가
-                    // 내가 btnMold_X_W.Text 에 담아놓은 머신명과 일치하는가? 
-                    // 1 ~ 9까지 체크반복, 맞으면 글자 업데이트.
+                    //if (PersonName == "")
+                    //{
+                    //    textBox1.Text = WorkQty;
+                    //}
+                    //else
+                    //{
+
+                   
+
+                        // 작업 진행중 이라고 판단한 이 아이의 현재 MACHINE_NO가
+                        // 내가 btnMold_X_W.Text 에 담아놓은 머신명과 일치하는가? 
+                        // 1 ~ 9까지 체크반복, 맞으면 글자 업데이트.
 
 
-                    if (Machine_Name + "\r\n" + Process_Name == btnMoldW1.Text)
-                    {
-                        btnMoldW1.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" +
-                            "작업중";      //Lotid + "\r\n" + "\r\n" +
-                        btnMoldW1.Tag = Lotid;
-                    }
+                        if (Machine_Name + "\r\n" + Process_Name == btnMoldW1.Text)
+                        {
+                            btnMoldW1.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" + WorkQty + "\r\n" +
+                                "작업중";      //Lotid + "\r\n" + "\r\n" +
+                            btnMoldW1.Tag = Lotid;
+                        }
 
-                    if (Machine_Name + "\r\n" + Process_Name == btnMoldW2.Text)
-                    {
-                        btnMoldW2.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" +
-                            "작업중";
-                        btnMoldW2.Tag = Lotid;
-                    }
+                        if (Machine_Name + "\r\n" + Process_Name == btnMoldW2.Text)
+                        {
+                            btnMoldW2.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" +"\r\n" + WorkQty + "\r\n" +
+                                "작업중";
+                            btnMoldW2.Tag = Lotid;
+                        }
 
-                    if (Machine_Name + "\r\n" + Process_Name == btnMoldW3.Text)
-                    {
-                        btnMoldW3.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" +
-                            "작업중";     //Lotid + "\r\n" + "\r\n" +
-                        btnMoldW3.Tag = Lotid;
-                    }
+                        if (Machine_Name + "\r\n" + Process_Name == btnMoldW3.Text)
+                        {
+                            btnMoldW3.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" + WorkQty + "\r\n" +
+                                "작업중";     //Lotid + "\r\n" + "\r\n" +
+                            btnMoldW3.Tag = Lotid;
+                        }
 
-                    if (Machine_Name + "\r\n" + Process_Name == btnMoldW4.Text)
-                    {
-                        btnMoldW4.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" +
-                            "작업중";
-                        btnMoldW4.Tag = Lotid;
-                    }
+                        if (Machine_Name + "\r\n" + Process_Name == btnMoldW4.Text)
+                        {
+                            btnMoldW4.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" + WorkQty + "\r\n" +
+                                "작업중";
+                            btnMoldW4.Tag = Lotid;
+                        }
 
-                    if (Machine_Name + "\r\n" + Process_Name == btnMoldW5.Text)
-                    {
-                        btnMoldW5.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" +
-                            "작업중";
-                        btnMoldW5.Tag = Lotid;
-                    }
+                        if (Machine_Name + "\r\n" + Process_Name == btnMoldW5.Text)
+                        {
+                            btnMoldW5.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" + WorkQty + "\r\n" +
+                                "작업중";
+                            btnMoldW5.Tag = Lotid;
+                        }
 
-                    if (Machine_Name + "\r\n" + Process_Name == btnMoldW6.Text)
-                    {
-                        btnMoldW6.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" +
-                            "작업중";
-                        btnMoldW6.Tag = Lotid;
-                    }
+                        if (Machine_Name + "\r\n" + Process_Name == btnMoldW6.Text)
+                        {
+                            btnMoldW6.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" + WorkQty + "\r\n" +
+                                "작업중";
+                            btnMoldW6.Tag = Lotid;
+                        }
 
-                    if (Machine_Name + "\r\n" + Process_Name == btnMoldW7.Text)
-                    {
-                        btnMoldW7.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" +
-                            "작업중";
-                        btnMoldW7.Tag = Lotid;
-                    }
+                        if (Machine_Name + "\r\n" + Process_Name == btnMoldW7.Text)
+                        {
+                            btnMoldW7.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" + WorkQty + "\r\n" +
+                                "작업중";
+                            btnMoldW7.Tag = Lotid;
+                        }
 
-                    if (Machine_Name + "\r\n" + Process_Name == btnMoldW8.Text)
-                    {
-                        btnMoldW8.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" +
-                            "작업중";
-                        btnMoldW8.Tag = Lotid;
-                    }
+                        if (Machine_Name + "\r\n" + Process_Name == btnMoldW8.Text)
+                        {
+                            btnMoldW8.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" + WorkQty + "\r\n" +
+                                "작업중";
+                            btnMoldW8.Tag = Lotid;
+                        }
 
-                    if (Machine_Name + "\r\n" + Process_Name == btnMoldW9.Text)
-                    {
-                        btnMoldW9.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" +
-                            "작업중";
-                        btnMoldW9.Tag = Lotid;
-                    }
-                    if (Machine_Name + "\r\n" + Process_Name == btnMoldW10.Text)
-                    {
-                        btnMoldW10.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" +
-                            "작업중";
-                        btnMoldW10.Tag = Lotid;
-                    }
+                        if (Machine_Name + "\r\n" + Process_Name == btnMoldW9.Text)
+                        {
+                            btnMoldW9.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" + WorkQty + "\r\n" +
+                                "작업중";
+                            btnMoldW9.Tag = Lotid;
+                        }
+                        if (Machine_Name + "\r\n" + Process_Name == btnMoldW10.Text)
+                        {
+                            btnMoldW10.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" + WorkQty + "\r\n" +
+                                "작업중";
+                            btnMoldW10.Tag = Lotid;
+                        }
+                    //}
                 }
 
                 ////
@@ -1800,6 +1817,9 @@ namespace WizWork
                         return;
                     }
                 }
+
+                this.timer1.Enabled = false;
+
                 form.MdiParent = this.ParentForm;
                 form.TopLevel = false;
                 form.Dock = DockStyle.Fill;
@@ -2081,53 +2101,86 @@ namespace WizWork
             #endregion
 
             //삼익SDT는 도금을 외주로 처리
-            if (Frm_tprc_Main.g_tBase.Process.Contains("외주") == true)  //Frm_tprc_Main.g_tBase.Process.Contains("도금") == true || 2023.02.14 요청으로 일단 도금 조건 주석
-            {
-                //라벨 스캔
-                frm_PopUp_PreScanWork_Grid4 FPPSW = new frm_PopUp_PreScanWork_Grid4(processid, machindid, moldid);
-                FPPSW.StartPosition = FormStartPosition.CenterScreen;
-                FPPSW.BringToFront();
-                FPPSW.TopMost = true;
+            //if (Frm_tprc_Main.g_tBase.Process.Contains("외주") == true)  //Frm_tprc_Main.g_tBase.Process.Contains("도금") == true || 2023.02.14 요청으로 일단 도금 조건 주석
+            //{
+            //    //라벨 스캔
+            //    frm_PopUp_PreScanWork_Grid4 FPPSW = new frm_PopUp_PreScanWork_Grid4(processid, machindid, moldid);
+            //    FPPSW.StartPosition = FormStartPosition.CenterScreen;
+            //    FPPSW.BringToFront();
+            //    FPPSW.TopMost = true;
 
-                if (FPPSW.ShowDialog() == DialogResult.OK)
-                {
-                    // ok라는건, 새로운 시작처리가 하나 있다는 것.
-                    // re_search.
-                    //procQuery();
-                    //WorkingMachine_btnSetting();
-                    //LogData.LogSave(this.GetType().Name, "R"); //2022-06-22 조회
+            //    if (FPPSW.ShowDialog() == DialogResult.OK)
+            //    {
+            //        // ok라는건, 새로운 시작처리가 하나 있다는 것.
+            //        // re_search.
+            //        //procQuery();
+            //        //WorkingMachine_btnSetting();
+            //        //LogData.LogSave(this.GetType().Name, "R"); //2022-06-22 조회
 
-                    //2021-11-30 하위품 라벨 리스트 추가
-                    List<string> listChildLabelID = new List<string>();
-                    //2021-11-30 하위품 Article 리스트 추가
-                    List<string> listChildArticle = new List<string>();
-                    //2022-05-18 하위품 ArticleID 리스트 추가
-                    List<string> listChildArticleID = new List<string>();
+            //        //2021-11-30 하위품 라벨 리스트 추가
+            //        List<string> listChildLabelID = new List<string>();
+            //        //2021-11-30 하위품 Article 리스트 추가
+            //        List<string> listChildArticle = new List<string>();
+            //        //2022-05-18 하위품 ArticleID 리스트 추가
+            //        List<string> listChildArticleID = new List<string>();
 
 
-                    listChildLabelID = FPPSW.lstChildLabelList;
-                    listChildArticle = FPPSW.lstChildArticleList;
-                    listChildArticleID = FPPSW.lstChildArticleIDList;
+            //        listChildLabelID = FPPSW.lstChildLabelList;
+            //        listChildArticle = FPPSW.lstChildArticleList;
+            //        listChildArticleID = FPPSW.lstChildArticleIDList;
 
-                    MoveWorking(listChildLabelID, listChildArticle, listChildArticleID);
-                }
-            }
-            else
-            {
-                frm_PopUp_PreScanWork_Grid4 FPPSW = new frm_PopUp_PreScanWork_Grid4(processid, machindid, moldid);
-                FPPSW.StartPosition = FormStartPosition.CenterScreen;
-                FPPSW.BringToFront();
-                FPPSW.TopMost = true;
+            //        MoveWorking(listChildLabelID, listChildArticle, listChildArticleID);
+            //    }
+            //}
+            //else
+            //{
+                //if (ConvertInt(Frm_tprc_Main.g_tBase.sInstDetSeq) == 1) 
+                //{
+                //    frm_PopUp_PreScanWork_Grid4 FPPSW = new frm_PopUp_PreScanWork_Grid4(processid, machindid, moldid);
+                //    FPPSW.StartPosition = FormStartPosition.CenterScreen;
+                //    FPPSW.BringToFront();
+                //    FPPSW.TopMost = true;
 
-                if (FPPSW.ShowDialog() == DialogResult.OK)
-                {
-                    // ok라는건, 새로운 시작처리가 하나 있다는 것.
-                    // re_search.
-                    procQuery();
-                    WorkingMachine_btnSetting();
-                    LogData.LogSave(this.GetType().Name, "R"); //2022-06-22 조회
-                }
-            }
+                //    if (FPPSW.ShowDialog() == DialogResult.OK)
+                //    {
+                //        // ok라는건, 새로운 시작처리가 하나 있다는 것.
+                //        // re_search.
+                //        procQuery();
+                //        WorkingMachine_btnSetting();
+                //        LogData.LogSave(this.GetType().Name, "R"); //2022-06-22 조회
+                //    }
+                //}
+                //else
+                //{
+                    frm_PopUp_PreScanWork4 FPPSW = new frm_PopUp_PreScanWork4(processid, machindid, moldid);
+                    FPPSW.StartPosition = FormStartPosition.CenterScreen;
+                    FPPSW.BringToFront();
+                    FPPSW.TopMost = true;
+
+                    if (FPPSW.ShowDialog() == DialogResult.OK)
+                    {
+                        // ok라는건, 새로운 시작처리가 하나 있다는 것.
+                        // re_search.
+                        procQuery();
+                        WorkingMachine_btnSetting();
+                        LogData.LogSave(this.GetType().Name, "R"); //2022-06-22 조회
+                    }
+                //}
+                //라벨 선택
+                //frm_PopUp_PreScanWork4 FPPSW = new frm_PopUp_PreScanWork4(processid, machindid, moldid);
+                //FPPSW.StartPosition = FormStartPosition.CenterScreen;
+                //FPPSW.BringToFront();
+                //FPPSW.TopMost = true;
+
+                //if (FPPSW.ShowDialog() == DialogResult.OK)
+                //{
+                //    // ok라는건, 새로운 시작처리가 하나 있다는 것.
+                //    // re_search.
+                //    procQuery();
+                //    WorkingMachine_btnSetting();
+                //    LogData.LogSave(this.GetType().Name, "R"); //2022-06-22 조회
+                //}
+            //}
             //라벨 선택
             //frm_PopUp_PreScanWork4 FPPSW = new frm_PopUp_PreScanWork4(processid, machindid, moldid);
             //FPPSW.StartPosition = FormStartPosition.CenterScreen;
@@ -2577,6 +2630,165 @@ namespace WizWork
         {
             //chkBuyerArticle.Checked = true;
         }
+        #endregion
+
+        #region 타이머 함수
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            if (this.timer1.Enabled == true)
+            {
+                //WorkingMachine_btnSetting();
+                WorkingMachine_WorkingQty(); //2022-02-09 
+            }
+            else
+            {
+                timer1.Enabled = false;
+                
+            }
+        }
+
+        private void WorkingMachine_WorkingQty() //2022-02-09
+        {
+            try
+            {
+                string Lotid = string.Empty;
+                string PersonName = string.Empty;
+                string Machine_Name = string.Empty;
+                string Process_Name = string.Empty;
+                string WorkQty = string.Empty;
+
+                DataTable dt3 = DataStore.Instance3.ProcedureToDataTable3("xp_WizWork_sNowWorking", null, false);
+
+                foreach (DataRow dr in dt3.Rows)
+                {
+
+                    PersonName = dr["Name"].ToString().Trim();
+                    Lotid = dr["LabelID"].ToString().Trim();
+                    Machine_Name = dr["MachineNo"].ToString().Trim();
+                    Process_Name = dr["Process"].ToString().Trim();
+                    WorkQty = dr["WorkQty"].ToString().Trim();
+
+
+
+                    // 작업 진행중 이라고 판단한 이 아이의 현재 MACHINE_NO가
+                    // 내가 btnMold_X_W.Text 에 담아놓은 머신명과 일치하는가? 
+                    // 1 ~ 9까지 체크반복, 맞으면 글자 업데이트.
+
+
+                    //if (Machine_Name + "\r\n" + Process_Name == btnMoldW1.Text) 2022-02-09 수량만 수정하기 위해 조건문 수정
+
+                    if (btnMoldW1.Text.Contains(Machine_Name) && btnMoldW1.Text.Contains(Process_Name))
+                    {
+                        btnMoldW1.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" + WorkQty + "\r\n" +
+                            "작업중";      //Lotid + "\r\n" + "\r\n" +
+                        btnMoldW1.Tag = Lotid;
+                    }
+
+                    if (btnMoldW2.Text.Contains(Machine_Name) && btnMoldW2.Text.Contains(Process_Name))
+                    {
+                        btnMoldW2.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" + WorkQty + "\r\n" +
+                            "작업중";
+                        btnMoldW2.Tag = Lotid;
+                    }
+
+                    if (btnMoldW3.Text.Contains(Machine_Name) && btnMoldW3.Text.Contains(Process_Name))
+                    {
+                        btnMoldW3.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" + WorkQty + "\r\n" +
+                            "작업중";     //Lotid + "\r\n" + "\r\n" +
+                        btnMoldW3.Tag = Lotid;
+                    }
+
+                    if (btnMoldW4.Text.Contains(Machine_Name) && btnMoldW4.Text.Contains(Process_Name))
+                    {
+                        btnMoldW4.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" + WorkQty + "\r\n" +
+                            "작업중";
+                        btnMoldW4.Tag = Lotid;
+                    }
+
+                    if (btnMoldW5.Text.Contains(Machine_Name) && btnMoldW5.Text.Contains(Process_Name))
+                    {
+                        btnMoldW5.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" + WorkQty + "\r\n" +
+                            "작업중";
+                        btnMoldW5.Tag = Lotid;
+                    }
+
+                    if (btnMoldW6.Text.Contains(Machine_Name) && btnMoldW6.Text.Contains(Process_Name))
+                    {
+                        btnMoldW6.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" + WorkQty + "\r\n" +
+                            "작업중";
+                        btnMoldW6.Tag = Lotid;
+                    }
+
+                    if (btnMoldW7.Text.Contains(Machine_Name) && btnMoldW7.Text.Contains(Process_Name))
+                    {
+                        btnMoldW7.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" + WorkQty + "\r\n" +
+                            "작업중";
+                        btnMoldW7.Tag = Lotid;
+                    }
+
+                    if (btnMoldW8.Text.Contains(Machine_Name) && btnMoldW8.Text.Contains(Process_Name))
+                    {
+                        btnMoldW8.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" + WorkQty + "\r\n" +
+                            "작업중";
+                        btnMoldW8.Tag = Lotid;
+                    }
+
+                    if (btnMoldW9.Text.Contains(Machine_Name) && btnMoldW9.Text.Contains(Process_Name))
+                    {
+                        btnMoldW9.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" + WorkQty + "\r\n" +
+                            "작업중";
+                        btnMoldW9.Tag = Lotid;
+                    }
+                    if (btnMoldW10.Text.Contains(Machine_Name) && btnMoldW10.Text.Contains(Process_Name))
+                    {
+                        btnMoldW10.Text = Machine_Name + "\r\n" + Process_Name + "\r\n" + PersonName + "\r\n" + "\r\n" + WorkQty + "\r\n" +
+                            "작업중";
+                        btnMoldW10.Tag = Lotid;
+                    }
+                }
+
+                ////
+                ///4. 연동이 완료된 아이는 노란색 색칠.
+                ///  그렇지 못한 아니는 btn disable 처리.
+                ////
+                if (btnMoldW1.Text.EndsWith("중") == false) { btnMoldW1.Enabled = false; }
+                if (btnMoldW2.Text.EndsWith("중") == false) { btnMoldW2.Enabled = false; }
+                if (btnMoldW3.Text.EndsWith("중") == false) { btnMoldW3.Enabled = false; }
+                if (btnMoldW4.Text.EndsWith("중") == false) { btnMoldW4.Enabled = false; }
+                if (btnMoldW5.Text.EndsWith("중") == false) { btnMoldW5.Enabled = false; }
+                if (btnMoldW6.Text.EndsWith("중") == false) { btnMoldW6.Enabled = false; }
+                if (btnMoldW7.Text.EndsWith("중") == false) { btnMoldW7.Enabled = false; }
+                if (btnMoldW8.Text.EndsWith("중") == false) { btnMoldW8.Enabled = false; }
+                if (btnMoldW9.Text.EndsWith("중") == false) { btnMoldW9.Enabled = false; }
+                if (btnMoldW10.Text.EndsWith("중") == false) { btnMoldW10.Enabled = false; }
+
+                if (btnMoldW1.Enabled == true) { btnMoldW1.BackColor = Color.Yellow; }
+                if (btnMoldW2.Enabled == true) { btnMoldW2.BackColor = Color.Yellow; }
+                if (btnMoldW3.Enabled == true) { btnMoldW3.BackColor = Color.Yellow; }
+                if (btnMoldW4.Enabled == true) { btnMoldW4.BackColor = Color.Yellow; }
+                if (btnMoldW5.Enabled == true) { btnMoldW5.BackColor = Color.Yellow; }
+                if (btnMoldW6.Enabled == true) { btnMoldW6.BackColor = Color.Yellow; }
+                if (btnMoldW7.Enabled == true) { btnMoldW7.BackColor = Color.Yellow; }
+                if (btnMoldW8.Enabled == true) { btnMoldW8.BackColor = Color.Yellow; }
+                if (btnMoldW9.Enabled == true) { btnMoldW9.BackColor = Color.Yellow; }
+                if (btnMoldW10.Enabled == true) { btnMoldW10.BackColor = Color.Yellow; }
+
+                
+            }
+
+            catch (Exception excpt)
+            {
+                WizCommon.Popup.MyMessageBox.ShowBox(string.Format("오류! 관리자에게 문의\r\n{0}", excpt.Message), "[오류]", 0, 1);
+                //DataStore.Instance.CloseConnection(); //2021-10-07 DB 커넥트 연결 해제
+            }
+            finally
+            {
+                DataStore.Instance.CloseConnection(); //2021-10-07 DB 커넥트 연결 해제
+            }
+        }
+
         #endregion
 
     }

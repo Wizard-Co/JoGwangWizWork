@@ -40,16 +40,44 @@ namespace WizCommon
         public SqlConnection p_Connection;
         public SqlCommand p_Command;
 
+        //통신 DB 연결
+        public SqlConnection p_Connection2; //2023-04-25
+        public SqlCommand p_Command2;//2023-04-25
+
+        //타이머 DB 연결
+        public SqlConnection p_Connection3; //2023-04-25
+        public SqlCommand p_Command3;//2023-04-25
+
         public SqlConnection L_Connection;
         public SqlCommand L_Command;
+
+        //통신 DB 연결
+        public SqlConnection L_Connection2;//2023-04-25
+        public SqlCommand L_Command2;//2023-04-25
+
+        //타이머 DB 연결
+        public SqlConnection L_Connection3; //2023-04-25
+        public SqlCommand L_Command3;//2023-04-25
 
         private const string ConnectionStringDataSource = "Data Source=";
         private const string ConnectionStringPWD = ";PWD=";
         private const string ConnectionStringTimeout = "; Connection Timeout=0";
         private string ConnectionString = string.Empty;//"Data Source=192.168.46.20;Initial Catalog=KRBPOP_C;UID=POPAdmin;PWD=qhdlffj_22_; Connection Timeout=180"
         private string LogConnectionString = string.Empty;
+        //통신 DB 연결
+        private string ConnectionString2 = string.Empty;//"Data Source=192.168.46.20;Initial Catalog=KRBPOP_C;UID=POPAdmin;PWD=qhdlffj_22_; Connection Timeout=180"
+        private string LogConnectionString2 = string.Empty;
+        //타이머 DB 연결
+        private string ConnectionString3 = string.Empty;//"Data Source=192.168.46.20;Initial Catalog=KRBPOP_C;UID=POPAdmin;PWD=qhdlffj_22_; Connection Timeout=180"
+        private string LogConnectionString3 = string.Empty;
         private static DataStore p_dataStore = new DataStore();
         private static DataStore L_dataStore = new DataStore();
+        //통신 DB 연결
+        private static DataStore p_dataStore2 = new DataStore();//2023-04-25
+        private static DataStore L_dataStore2 = new DataStore();//2023-04-25
+        //타이머 DB 연결
+        private static DataStore p_dataStore3 = new DataStore();//2023-04-25
+        private static DataStore L_dataStore3 = new DataStore();//2023-04-25
 
         public static DataStore Instance
         {
@@ -72,6 +100,55 @@ namespace WizCommon
                 }
 
                 return p_dataStore;
+            }
+        }
+
+        //2023-04-25
+        public static DataStore Instance2
+        {
+            get
+            {
+                if (p_dataStore2 == null)
+                {
+                    p_dataStore2 = new DataStore();
+                }
+
+                if (p_dataStore2.p_Connection2 == null)
+                {
+                    p_dataStore2.p_Connection2 = new SqlConnection(p_dataStore2.ConnectionString2);
+                    p_dataStore2.p_Command2 = p_dataStore2.p_Connection2.CreateCommand();
+                }
+
+                if (p_dataStore2.p_Command2 == null)
+                {
+                    p_dataStore2.p_Command2 = p_dataStore2.p_Connection2.CreateCommand();
+                }
+
+                return p_dataStore2;
+            }
+        }
+
+        public static DataStore Instance3
+        {
+            get
+            {
+                if (p_dataStore3 == null)
+                {
+                    p_dataStore3 = new DataStore();
+                }
+
+                if (p_dataStore3.p_Connection3 == null)
+                {
+                    p_dataStore3.p_Connection3 = new SqlConnection(p_dataStore3.ConnectionString3);
+                    p_dataStore3.p_Command3 = p_dataStore3.p_Connection3.CreateCommand();
+                }
+
+                if (p_dataStore3.p_Command3 == null)
+                {
+                    p_dataStore3.p_Command3 = p_dataStore3.p_Connection3.CreateCommand();
+                }
+
+                return p_dataStore3;
             }
         }
 
@@ -102,6 +179,58 @@ namespace WizCommon
             }
         }
 
+        public static DataStore Log_Instance2
+        {
+            get
+            {
+
+                if (L_dataStore2 == null)
+                {
+                    L_dataStore2 = new DataStore();
+                }
+
+                if (L_dataStore2.L_Connection2 == null)
+                {
+                    L_dataStore2.L_Connection2 = new SqlConnection(L_dataStore2.LogConnectionString2);
+                    L_dataStore2.L_Command2 = L_dataStore.L_Connection2.CreateCommand();
+                }
+
+                if (L_dataStore2.L_Command == null)
+                {
+                    L_dataStore2.L_Command = L_dataStore2.L_Connection2.CreateCommand();
+                }
+
+
+
+                return L_dataStore2;
+            }
+        }
+
+        public static DataStore Log_Instance3
+        {
+            get
+            {
+
+                if (L_dataStore3 == null)
+                {
+                    L_dataStore3 = new DataStore();
+                }
+
+                if (L_dataStore3.L_Connection3 == null)
+                {
+                    L_dataStore3.L_Connection3 = new SqlConnection(L_dataStore3.LogConnectionString3);
+                    L_dataStore3.L_Command3 = L_dataStore.L_Connection3.CreateCommand();
+                }
+
+                if (L_dataStore3.L_Command == null)
+                {
+                    L_dataStore3.L_Command = L_dataStore3.L_Connection3.CreateCommand();
+                }
+
+                return L_dataStore3;
+            }
+        }
+
         public SqlCommand Command
         {
             get { return p_Command; }
@@ -118,6 +247,29 @@ namespace WizCommon
             L_Connection = new SqlConnection(LogConnectionString);
             L_Command = L_Connection.CreateCommand();
             L_Command.CommandTimeout = 60;
+
+
+            p_Connection2 = new SqlConnection(ConnectionString2);
+            p_Command2 = p_Connection2.CreateCommand();
+            p_Command2.CommandTimeout = 60;
+
+
+            //20170901 김종영 추가 WizLog DB에 Log를 남기기위해 추가
+            L_Connection2 = new SqlConnection(LogConnectionString2);
+            L_Command2 = L_Connection2.CreateCommand();
+            L_Command2.CommandTimeout = 60;
+
+
+            p_Connection3 = new SqlConnection(ConnectionString3);
+            p_Command3 = p_Connection3.CreateCommand();
+            p_Command3.CommandTimeout = 60;
+
+
+            //20170901 김종영 추가 WizLog DB에 Log를 남기기위해 추가
+            L_Connection3 = new SqlConnection(LogConnectionString3);
+            L_Command3 = L_Connection3.CreateCommand();
+            L_Command3.CommandTimeout = 60;
+
         }
 
         public void SetConnectionString(string ipAddress, string id, string password, string catalog)
@@ -145,6 +297,56 @@ namespace WizCommon
             }
         }
 
+        public void SetConnectionString2(string ipAddress, string id, string password, string catalog)
+        {
+            StringBuilder sb = new StringBuilder(ConnectionStringDataSource);
+            sb.Append(ipAddress);
+            sb.Append(catalog);
+            sb.Append(id);
+            sb.Append(ConnectionStringPWD);
+            sb.Append(password);
+            sb.Append(ConnectionStringTimeout);
+
+            ConnectionString2 = sb.ToString();
+
+            if (string.IsNullOrEmpty(p_Connection2.ConnectionString) == false)
+            {
+                p_Connection2.Close();
+            }
+
+            p_Connection2.ConnectionString = ConnectionString2;
+
+            if (p_Connection2.State == ConnectionState.Closed)
+            {
+                p_Connection2.Open();
+            }
+        }
+
+        public void SetConnectionString3(string ipAddress, string id, string password, string catalog)
+        {
+            StringBuilder sb = new StringBuilder(ConnectionStringDataSource);
+            sb.Append(ipAddress);
+            sb.Append(catalog);
+            sb.Append(id);
+            sb.Append(ConnectionStringPWD);
+            sb.Append(password);
+            sb.Append(ConnectionStringTimeout);
+
+            ConnectionString3 = sb.ToString();
+
+            if (string.IsNullOrEmpty(p_Connection2.ConnectionString) == false)
+            {
+                p_Connection3.Close();
+            }
+
+            p_Connection3.ConnectionString = ConnectionString3;
+
+            if (p_Connection3.State == ConnectionState.Closed)
+            {
+                p_Connection3.Open();
+            }
+        }
+
         public void L_SetConnectionString(string ipAddress, string id, string password, string catalog)
         {
             StringBuilder sb = new StringBuilder(ConnectionStringDataSource);
@@ -167,6 +369,56 @@ namespace WizCommon
             if (L_Connection.State == ConnectionState.Closed)
             {
                 L_Connection.Open();
+            }
+        }
+
+        public void L_SetConnectionString2(string ipAddress, string id, string password, string catalog)
+        {
+            StringBuilder sb = new StringBuilder(ConnectionStringDataSource);
+            sb.Append(ipAddress);
+            sb.Append(catalog);
+            sb.Append(id);
+            sb.Append(ConnectionStringPWD);
+            sb.Append(password);
+            sb.Append(ConnectionStringTimeout);
+
+            ConnectionString2 = sb.ToString();
+
+            if (string.IsNullOrEmpty(L_Connection2.ConnectionString) == false)
+            {
+                L_Connection2.Close();
+            }
+
+            L_Connection2.ConnectionString = ConnectionString2;
+
+            if (L_Connection2.State == ConnectionState.Closed)
+            {
+                L_Connection2.Open();
+            }
+        }
+
+        public void L_SetConnectionString3(string ipAddress, string id, string password, string catalog)
+        {
+            StringBuilder sb = new StringBuilder(ConnectionStringDataSource);
+            sb.Append(ipAddress);
+            sb.Append(catalog);
+            sb.Append(id);
+            sb.Append(ConnectionStringPWD);
+            sb.Append(password);
+            sb.Append(ConnectionStringTimeout);
+
+            ConnectionString3 = sb.ToString();
+
+            if (string.IsNullOrEmpty(L_Connection3.ConnectionString) == false)
+            {
+                L_Connection3.Close();
+            }
+
+            L_Connection3.ConnectionString = ConnectionString3;
+
+            if (L_Connection3.State == ConnectionState.Closed)
+            {
+                L_Connection3.Open();
             }
         }
 
@@ -509,6 +761,8 @@ namespace WizCommon
 
                 IsQuerySuccessYN = false;
                 exMsg = e.Message;
+
+
                 return null;
             }
             finally
@@ -542,6 +796,172 @@ namespace WizCommon
 
             }
         }
+
+
+        public DataTable ProcedureToDataTable2(string procedureName, Dictionary<string, object> sqlParameter, bool logOn)
+        {
+
+            bool IsQuerySuccessYN = false;
+            string exMsg = "";
+
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+
+                if (p_Connection2.State == ConnectionState.Closed)
+                {
+                    p_Connection2.Open();
+                }
+
+                p_Command2.CommandText = procedureName;
+                p_Command2.CommandType = CommandType.StoredProcedure;
+                p_Command2.Parameters.Clear();
+
+
+                if (sqlParameter != null)
+                {
+                    foreach (KeyValuePair<string, object> kvp in sqlParameter)
+                    {
+                        p_Command2.Parameters.AddWithValue(kvp.Key, kvp.Value);
+                    }
+                }
+
+                SqlDataAdapter adapter = new SqlDataAdapter(p_Command2);
+                DataTable dataTable = new DataTable();
+                //DataSet dataSet = new DataSet();
+                adapter.Fill(dataTable);
+                //adapter.Fill(dataSet);
+                adapter.Dispose();
+                //dataTable = dataSet.Tables[0];
+                IsQuerySuccessYN = true;
+
+                return dataTable;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                IsQuerySuccessYN = false;
+                exMsg = e.Message;
+
+
+                return null;
+            }
+            finally
+            {
+                if (logOn == true)
+                {
+                    // DB Log를 남긴다.
+                    StringBuilder trxCommand = new StringBuilder(procedureName);
+
+                    if (p_Command2.Parameters.Count > 0)
+                    {
+                        trxCommand.Append(" ");
+
+                        foreach (KeyValuePair<string, object> kvp in sqlParameter)
+                        {
+                            trxCommand.Append(kvp.Key + " = " + kvp.Value.ToString());
+                            trxCommand.Append(", ");
+                        }
+
+                        trxCommand.Remove(trxCommand.Length - 2, 2);
+                    }
+
+                    InsertTrxLog(new System.Diagnostics.StackTrace(1, false).GetFrame(0).GetMethod(), trxCommand.ToString(), IsQuerySuccessYN, exMsg);
+                }
+
+                Cursor.Current = Cursors.Default;
+                if (p_Connection2.State != ConnectionState.Closed)
+                {
+                    p_Connection2.Close();
+                }
+
+            }
+        }
+
+
+        public DataTable ProcedureToDataTable3(string procedureName, Dictionary<string, object> sqlParameter, bool logOn)
+        {
+
+            bool IsQuerySuccessYN = false;
+            string exMsg = "";
+
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+
+                if (p_Connection3.State == ConnectionState.Closed)
+                {
+                    p_Connection3.Open();
+                }
+
+                p_Command3.CommandText = procedureName;
+                p_Command3.CommandType = CommandType.StoredProcedure;
+                p_Command3.Parameters.Clear();
+
+
+                if (sqlParameter != null)
+                {
+                    foreach (KeyValuePair<string, object> kvp in sqlParameter)
+                    {
+                        p_Command3.Parameters.AddWithValue(kvp.Key, kvp.Value);
+                    }
+                }
+
+                SqlDataAdapter adapter = new SqlDataAdapter(p_Command3);
+                DataTable dataTable = new DataTable();
+                //DataSet dataSet = new DataSet();
+                adapter.Fill(dataTable);
+                //adapter.Fill(dataSet);
+                adapter.Dispose();
+                //dataTable = dataSet.Tables[0];
+                IsQuerySuccessYN = true;
+
+                return dataTable;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                IsQuerySuccessYN = false;
+                exMsg = e.Message;
+
+
+                return null;
+            }
+            finally
+            {
+                if (logOn == true)
+                {
+                    // DB Log를 남긴다.
+                    StringBuilder trxCommand = new StringBuilder(procedureName);
+
+                    if (p_Command3.Parameters.Count > 0)
+                    {
+                        trxCommand.Append(" ");
+
+                        foreach (KeyValuePair<string, object> kvp in sqlParameter)
+                        {
+                            trxCommand.Append(kvp.Key + " = " + kvp.Value.ToString());
+                            trxCommand.Append(", ");
+                        }
+
+                        trxCommand.Remove(trxCommand.Length - 2, 2);
+                    }
+
+                    InsertTrxLog(new System.Diagnostics.StackTrace(1, false).GetFrame(0).GetMethod(), trxCommand.ToString(), IsQuerySuccessYN, exMsg);
+                }
+
+                Cursor.Current = Cursors.Default;
+                if (p_Connection3.State != ConnectionState.Closed)
+                {
+                    p_Connection3.Close();
+                }
+
+            }
+        }
+
+
         /// <summary>
         /// 실행쿼리
         /// </summary>

@@ -53,9 +53,9 @@ namespace WizWork
             this.cmdRowDown = new System.Windows.Forms.Button();
             this.cmdClose = new System.Windows.Forms.Button();
             this.cmdStart = new System.Windows.Forms.Button();
-            this.btnToolChange = new System.Windows.Forms.Button();
             this.btnWorkOrderJPG = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.pnlFill = new System.Windows.Forms.Panel();
             this.tlpFill = new System.Windows.Forms.TableLayoutPanel();
             this.tlpTop = new System.Windows.Forms.TableLayoutPanel();
@@ -116,6 +116,7 @@ namespace WizWork
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cboBuyerArticle = new System.Windows.Forms.ComboBox();
+            this.btnToolChange = new System.Windows.Forms.Button();
             this.pnlForm.SuspendLayout();
             this.tlpForm.SuspendLayout();
             this.pnlRight.SuspendLayout();
@@ -175,7 +176,8 @@ namespace WizWork
             // 
             // timer1
             // 
-            this.timer1.Interval = 10000;
+            this.timer1.Interval = 3000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -211,6 +213,7 @@ namespace WizWork
             this.pnlForm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlForm.Controls.Add(this.tlpForm);
             this.pnlForm.Controls.Add(this.cboBuyerArticle);
+            this.pnlForm.Controls.Add(this.btnToolChange);
             this.pnlForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlForm.Location = new System.Drawing.Point(0, 0);
             this.pnlForm.Name = "pnlForm";
@@ -250,9 +253,9 @@ namespace WizWork
             this.tlpRight.Controls.Add(this.cmdRowDown, 0, 2);
             this.tlpRight.Controls.Add(this.cmdClose, 0, 7);
             this.tlpRight.Controls.Add(this.cmdStart, 0, 3);
-            this.tlpRight.Controls.Add(this.btnToolChange, 0, 4);
             this.tlpRight.Controls.Add(this.btnWorkOrderJPG, 0, 5);
             this.tlpRight.Controls.Add(this.button2, 0, 6);
+            this.tlpRight.Controls.Add(this.textBox1, 0, 4);
             this.tlpRight.Location = new System.Drawing.Point(-1, -1);
             this.tlpRight.Margin = new System.Windows.Forms.Padding(1);
             this.tlpRight.Name = "tlpRight";
@@ -350,24 +353,6 @@ namespace WizWork
             this.cmdStart.UseVisualStyleBackColor = false;
             this.cmdStart.Click += new System.EventHandler(this.cmdStart_Click);
             // 
-            // btnToolChange
-            // 
-            this.btnToolChange.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(147)))), ((int)(((byte)(114)))));
-            this.btnToolChange.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnToolChange.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Bold);
-            this.btnToolChange.Image = global::WizWork.Properties.Resources.inbox_in;
-            this.btnToolChange.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnToolChange.Location = new System.Drawing.Point(2, 302);
-            this.btnToolChange.Margin = new System.Windows.Forms.Padding(2);
-            this.btnToolChange.Name = "btnToolChange";
-            this.btnToolChange.Size = new System.Drawing.Size(138, 70);
-            this.btnToolChange.TabIndex = 220;
-            this.btnToolChange.Text = "Tool";
-            this.btnToolChange.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnToolChange.UseVisualStyleBackColor = false;
-            this.btnToolChange.Visible = false;
-            this.btnToolChange.Click += new System.EventHandler(this.btnToolChange_Click);
-            // 
             // btnWorkOrderJPG
             // 
             this.btnWorkOrderJPG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(156)))));
@@ -401,6 +386,16 @@ namespace WizWork
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.btnInspectAuto_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.textBox1.Location = new System.Drawing.Point(3, 303);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(127, 68);
+            this.textBox1.TabIndex = 221;
+            this.textBox1.Visible = false;
             // 
             // pnlFill
             // 
@@ -1203,6 +1198,23 @@ namespace WizWork
             this.cboBuyerArticle.DropDown += new System.EventHandler(this.cboBuyerArticle_DropDown);
             this.cboBuyerArticle.SelectedIndexChanged += new System.EventHandler(this.cboBuyerArticle_SelectedIndexChanged);
             // 
+            // btnToolChange
+            // 
+            this.btnToolChange.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(147)))), ((int)(((byte)(114)))));
+            this.btnToolChange.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Bold);
+            this.btnToolChange.Image = global::WizWork.Properties.Resources.inbox_in;
+            this.btnToolChange.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnToolChange.Location = new System.Drawing.Point(954, 319);
+            this.btnToolChange.Margin = new System.Windows.Forms.Padding(2);
+            this.btnToolChange.Name = "btnToolChange";
+            this.btnToolChange.Size = new System.Drawing.Size(138, 70);
+            this.btnToolChange.TabIndex = 220;
+            this.btnToolChange.Text = "Tool";
+            this.btnToolChange.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnToolChange.UseVisualStyleBackColor = false;
+            this.btnToolChange.Visible = false;
+            this.btnToolChange.Click += new System.EventHandler(this.btnToolChange_Click);
+            // 
             // Frm_tprc_PlanInputMolded_Q
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1217,6 +1229,7 @@ namespace WizWork
             this.tlpForm.ResumeLayout(false);
             this.pnlRight.ResumeLayout(false);
             this.tlpRight.ResumeLayout(false);
+            this.tlpRight.PerformLayout();
             this.pnlFill.ResumeLayout(false);
             this.tlpFill.ResumeLayout(false);
             this.tlpFill.PerformLayout();
@@ -1251,7 +1264,7 @@ namespace WizWork
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer1;     
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
@@ -1328,5 +1341,6 @@ namespace WizWork
         private TextBox txtBuyerArticle;
         private Button btnMoldW10;
         private ComboBox cboBuyerArticle;
+        private TextBox textBox1;
     }
 }

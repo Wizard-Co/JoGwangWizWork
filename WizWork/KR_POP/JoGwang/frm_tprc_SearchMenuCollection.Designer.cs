@@ -38,6 +38,7 @@
             this.btnCase2 = new System.Windows.Forms.Button();
             this.btnCase3 = new System.Windows.Forms.Button();
             this.btnCase5 = new System.Windows.Forms.Button();
+            this.btnCase7 = new System.Windows.Forms.Button();
             this.tlpForm.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -91,10 +92,11 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.Controls.Add(this.btnCase1, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.btnClose, 3, 5);
-            this.tableLayoutPanel2.Controls.Add(this.btnCase6, 1, 5);
             this.tableLayoutPanel2.Controls.Add(this.btnCase2, 3, 3);
             this.tableLayoutPanel2.Controls.Add(this.btnCase3, 3, 1);
             this.tableLayoutPanel2.Controls.Add(this.btnCase5, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.btnCase6, 1, 6);
+            this.tableLayoutPanel2.Controls.Add(this.btnCase7, 1, 5);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(13, 10);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -139,10 +141,10 @@
             // 
             this.btnCase6.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnCase6.Font = new System.Drawing.Font("맑은 고딕", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnCase6.Location = new System.Drawing.Point(74, 296);
+            this.btnCase6.Location = new System.Drawing.Point(74, 401);
             this.btnCase6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCase6.Name = "btnCase6";
-            this.btnCase6.Size = new System.Drawing.Size(198, 60);
+            this.btnCase6.Size = new System.Drawing.Size(198, 24);
             this.btnCase6.TabIndex = 7;
             this.btnCase6.Text = "Tool 교환 조회";
             this.btnCase6.UseVisualStyleBackColor = false;
@@ -188,6 +190,19 @@
             this.btnCase5.UseVisualStyleBackColor = false;
             this.btnCase5.Click += new System.EventHandler(this.btnControl_Click);
             // 
+            // btnCase7
+            // 
+            this.btnCase7.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnCase7.Font = new System.Drawing.Font("맑은 고딕", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnCase7.Location = new System.Drawing.Point(74, 296);
+            this.btnCase7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCase7.Name = "btnCase7";
+            this.btnCase7.Size = new System.Drawing.Size(198, 60);
+            this.btnCase7.TabIndex = 8;
+            this.btnCase7.Text = "현장호출 관리/조회";
+            this.btnCase7.UseVisualStyleBackColor = false;
+            this.btnCase7.Click += new System.EventHandler(this.btnControl_Click);
+            // 
             // frm_tprc_SearchMenuCollection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -219,5 +234,6 @@
         private System.Windows.Forms.Button btnCase5;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnCase6;
+        private System.Windows.Forms.Button btnCase7;
     }
 }

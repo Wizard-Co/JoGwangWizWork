@@ -127,6 +127,19 @@ namespace WizWork
                         form = child6;
                         break;
 
+                    case 7:     //현장호출 조회
+                        frm_tprc_WorkCall_Q child7 = new frm_tprc_WorkCall_Q();
+                        foreach (Form openForm in Application.OpenForms) // 기존의 실행된건 종료시키기 2023.01.30
+                        {
+                            if (openForm.Name == child7.Name)
+                            {
+                                openForm.Close();
+                                break;
+                            }
+                        }
+                        form = child7;
+                        break;
+
                 }
                 if (form != null)
                 {

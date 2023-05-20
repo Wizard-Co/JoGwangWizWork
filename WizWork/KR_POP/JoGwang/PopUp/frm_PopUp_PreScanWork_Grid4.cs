@@ -189,70 +189,70 @@ namespace WizWork
         {
             try
             {
-                if (Frm_tprc_Main.g_tBase.Process.Contains("외주"))  //Frm_tprc_Main.g_tBase.Process.Contains("도금") || 2023.02.14 요청으로 일단 도금 조건 주석
-                { 
-                    //2021-05-12
-                    int index = 1;
-                    Dictionary<string, object> sqlParameter = new Dictionary<string, object>();
-                    sqlParameter.Add("PLotID", Frm_tprc_Main.g_tBase.sLotID);
+                //if (Frm_tprc_Main.g_tBase.Process.Contains("외주"))  //Frm_tprc_Main.g_tBase.Process.Contains("도금") || 2023.02.14 요청으로 일단 도금 조건 주석
+                //{ 
+                //    //2021-05-12
+                //    int index = 1;
+                //    Dictionary<string, object> sqlParameter = new Dictionary<string, object>();
+                //    sqlParameter.Add("PLotID", Frm_tprc_Main.g_tBase.sLotID);
 
-                    DataTable dt = DataStore.Instance.ProcedureToDataTable("xp_PlanInput_sPlanInputDetArticle_ChildPrdMove", sqlParameter, false);
+                //    DataTable dt = DataStore.Instance.ProcedureToDataTable("xp_PlanInput_sPlanInputDetArticle_ChildPrdMove", sqlParameter, false);
 
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        m_ChildArticle = dr["BuyerArticleNo"].ToString();
-                        m_ChildArticleID = dr["ChildArticleID"].ToString().Trim();
-                        m_ChildUnitClss = dr["UnitClss"].ToString();
+                //    foreach (DataRow dr in dt.Rows)
+                //    {
+                //        m_ChildArticle = dr["BuyerArticleNo"].ToString();
+                //        m_ChildArticleID = dr["ChildArticleID"].ToString().Trim();
+                //        m_ChildUnitClss = dr["UnitClss"].ToString();
 
-                        if (dr["ScanExceptYN"].ToString() == "N")
-                        {
-                            GridData2.Rows.Add(index.ToString() // 순번
-                                                        , ""
-                                                        , m_ChildArticle
-                                                        , ""
-                                                        , "선스캔라벨"
-                                                        , ""
-                                                        , m_ChildArticleID
-                                                        , m_ChildUnitClss
-                                                        , dr["ScanExceptYN"].ToString() //2022-02-14
-                                                        );
-                            index++;
-                        }
-                        else
-                        {
-                            GridData2.Rows.Add(index.ToString() // 순번
-                                                        , ""
-                                                        , m_ChildArticle
-                                                        , stringFormatN0(dr["NowLoc"].ToString())
-                                                        , "선스캔라벨"
-                                                        , ""
-                                                        , m_ChildArticleID
-                                                        , m_ChildUnitClss
-                                                        , dr["ScanExceptYN"].ToString() //2022-02-14
-                                                        );
-                            index++;
-                        }
-                    }
-                    //InsertX++; //2021-05-12 articlechild 에 임시 임서트 하기 위해 추가
+                //        if (dr["ScanExceptYN"].ToString() == "N")
+                //        {
+                //            GridData2.Rows.Add(index.ToString() // 순번
+                //                                        , ""
+                //                                        , m_ChildArticle
+                //                                        , ""
+                //                                        , "선스캔라벨"
+                //                                        , ""
+                //                                        , m_ChildArticleID
+                //                                        , m_ChildUnitClss
+                //                                        , dr["ScanExceptYN"].ToString() //2022-02-14
+                //                                        );
+                //            index++;
+                //        }
+                //        else
+                //        {
+                //            GridData2.Rows.Add(index.ToString() // 순번
+                //                                        , ""
+                //                                        , m_ChildArticle
+                //                                        , stringFormatN0(dr["NowLoc"].ToString())
+                //                                        , "선스캔라벨"
+                //                                        , ""
+                //                                        , m_ChildArticleID
+                //                                        , m_ChildUnitClss
+                //                                        , dr["ScanExceptYN"].ToString() //2022-02-14
+                //                                        );
+                //            index++;
+                //        }
+                //    }
+                //    //InsertX++; //2021-05-12 articlechild 에 임시 임서트 하기 위해 추가
 
-                    #region 주석
-                        //if (this.lstLabelList.Count > 0)
-                        //{
-                        //    for (int i = 0; i < lstLabelList.Count; i++)
-                        //    {
-                        //        GridData2.Rows.Add((GridData2.Rows.Count + 1).ToString()
-                        //                               , lstLabelList[i]
-                        //                               , txtBuyerArticleNo.Text
-                        //                               , lstQty[i].ToString()
-                        //                               , "X"
-                        //                               , ""
-                        //                              );
-                        //    }
-                        //}
-                        #endregion
-                }
-                else
-                {
+                //    #region 주석
+                //        //if (this.lstLabelList.Count > 0)
+                //        //{
+                //        //    for (int i = 0; i < lstLabelList.Count; i++)
+                //        //    {
+                //        //        GridData2.Rows.Add((GridData2.Rows.Count + 1).ToString()
+                //        //                               , lstLabelList[i]
+                //        //                               , txtBuyerArticleNo.Text
+                //        //                               , lstQty[i].ToString()
+                //        //                               , "X"
+                //        //                               , ""
+                //        //                              );
+                //        //    }
+                //        //}
+                //        #endregion
+                //}
+                //else
+                //{
                     //2021-05-12
                     int index = 1;
                     Dictionary<string, object> sqlParameter = new Dictionary<string, object>();
@@ -312,7 +312,7 @@ namespace WizWork
                     //    }
                     //}
                     #endregion
-                }
+                //}
 
 
             }

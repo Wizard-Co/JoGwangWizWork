@@ -865,14 +865,14 @@ namespace WizIns
 
                         g_sPrinterName = Lib.GetDefaultPrinter();
 
-                        if (g_sPrinterName.Contains("검사") || g_sPrinterName.Contains("생산"))
-                        {
+                        //if (g_sPrinterName.Contains("검사") || g_sPrinterName.Contains("생산"))
+                        //{
 
-                            if (SetDefaultPrinter("TSC TTP-243 Pro 검사"))
-                            {
-                                g_sPrinterName = Lib.GetDefaultPrinter();
-                            }
-                        }
+                        //    if (SetDefaultPrinter("TSC TTP-243 Pro 검사"))
+                        //    {
+                        //        g_sPrinterName = Lib.GetDefaultPrinter();
+                        //    }
+                        //}
                         //else
                         //{
                         //    g_sPrinterName = Lib.GetDefaultPrinter();
@@ -882,7 +882,7 @@ namespace WizIns
 
                         list_Data = new List<string>();
 
-                        string TagID = ArticleTagID;
+                        string TagID = "011";
 
                         list_Data.Add(Lib.CheckNull(dr["InBoxID"].ToString()));// 바코드
 
@@ -896,17 +896,17 @@ namespace WizIns
                             list_Data.Add(Lib.CheckNull(dr["KCompany"].ToString()));// 업체명
                         }
 
-                        if (TagID != "011")
-                        {
-                            list_Data.Add(Lib.CheckNull(dr["InCustom"].ToString()));// 업체명 Order.InCustomID
-                        }
-                        else //리니어모터인 경우 S/N
-                        {
-                            //list_Data.Add(Lib.CheckNull(dr[""].ToString()));// 업체명 Order.InCustomID
+                        //if (TagID != "011")
+                        //{
+                        //    list_Data.Add(Lib.CheckNull(dr["InCustom"].ToString()));// 업체명 Order.InCustomID
+                        //}
+                        //else //리니어모터인 경우 S/N
+                        //{
+                        //    //list_Data.Add(Lib.CheckNull(dr[""].ToString()));// 업체명 Order.InCustomID
 
-                            list_Data.Add(Lib.CheckNull(dr["SerialNo"].ToString()));
-                            //list_Data.Add("LM23B1604-10");
-                        }
+                        //    list_Data.Add(Lib.CheckNull(dr["SerialNo"].ToString()));
+                        //    //list_Data.Add("LM23B1604-10");
+                        //}
 
                         //list_Data.Add(Lib.MakeDate(WizWorkLib.DateTimeClss.DF_FD, Lib.CheckNull(dr["OutDate"].ToString())));// 출고일(출고 후 재발행시)
 
@@ -914,10 +914,10 @@ namespace WizIns
 
                         //list_Data.Add("TCM-STW-124-B-513L-S-13Y");// 품명
 
-                        //list_Data.Add(Lib.CheckNull(dr["BuyerArticleNo"].ToString()));// 품번
-                        list_Data.Add(Lib.stringFormatN0(Lib.ConvertDouble(Lib.CheckNull(dr["PackQty"].ToString()))) + " EA");// 수량
-                        //list_Data.Add(Lib.CheckNull(dr["Name"].ToString()));// 작업자
-                        //list_Data.Add(Lib.DatePickerFormat(Lib.CheckNull(dr["PackDate"].ToString())));// 일자
+                        list_Data.Add(Lib.CheckNull(dr["BuyerArticleNo"].ToString()));// 품번
+                        list_Data.Add(Lib.stringFormatN0(Lib.ConvertDouble(Lib.CheckNull(dr["PackQty"].ToString()))) + " EA");// 수량        
+                        list_Data.Add(Lib.DatePickerFormat(Lib.CheckNull(dr["PackDate"].ToString())));// 일자
+                        list_Data.Add(Lib.CheckNull(dr["Name"].ToString()));// 작업자
 
                         //list_Data.Add(Lib.DatePickerFormat(Lib.CheckNull(dr["SerialNo"].ToString())));// 시리얼넘버
 
@@ -998,56 +998,56 @@ namespace WizIns
         {
             if (CheckData() == true)
             {
-                Dictionary<string, object> sqlParameter = new Dictionary<string, object>();
-                sqlParameter.Clear();
+                //Dictionary<string, object> sqlParameter = new Dictionary<string, object>();
+                //sqlParameter.Clear();
 
-                sqlParameter.Add("LabelID", lstReprint[0].Cells["PackBoxID"].Value.ToString());
+                //sqlParameter.Add("LabelID", lstReprint[0].Cells["PackBoxID"].Value.ToString());
 
-                DataTable dt = DataStore.Instance.ProcedureToDataTable("xp_Packing_OrderArticleID", sqlParameter, false);
+                //DataTable dt = DataStore.Instance.ProcedureToDataTable("xp_Packing_OrderArticleID", sqlParameter, false);
 
-                if (dt != null
-                    && dt.Rows.Count > 0)
-                {
-                    DataRow dr = dt.Rows[0];
+                //if (dt != null
+                //    && dt.Rows.Count > 0)
+                //{
+                //    DataRow dr = dt.Rows[0];
 
-                    OrderArticleID = dr["OrderArticleID"].ToString();
+                //    OrderArticleID = dr["OrderArticleID"].ToString();
 
-                }
+                //}
 
-                DataStore.Instance.CloseConnection(); //2021-10-07 DB 커넥트 연결 해제
+                //DataStore.Instance.CloseConnection(); //2021-10-07 DB 커넥트 연결 해제
 
-                //OrderArticleID = "21";
+                ////OrderArticleID = "21";
 
-                if (OrderArticleID.IndexOf("21", 0, 2) != -1)
-                {
-                    //Frm_PopUp_PackingPrintMode packPM = new Frm_PopUp_PackingPrintMode();
-                    //packPM.ShowDialog();
+                //if (OrderArticleID.IndexOf("21", 0, 2) != -1)
+                //{
+                //    //Frm_PopUp_PackingPrintMode packPM = new Frm_PopUp_PackingPrintMode();
+                //    //packPM.ShowDialog();
 
-                    //if (packPM.DialogResult == DialogResult.No)
-                    //{
+                //    //if (packPM.DialogResult == DialogResult.No)
+                //    //{
 
-                    //}
-                    //else
-                    //{
-                        ArticleTagID = "016"; //013, 014 슬라이드 라벨 양식
-                        if (SaveData() == true)
-                        {
-                            Ftm.LogSave(this.GetType().Name, "P"); //2022-06-23 인쇄, 재발행
-                            FillGrid();
-                            Ftm.LogSave(this.GetType().Name, "R"); //2022-06-23 조회
-                        }
-                    //}
-                }
-                else
-                {
-                    ArticleTagID = "011"; //013, 014 슬라이드 라벨 양식
+                //    //}
+                //    //else
+                //    //{
+                //        ArticleTagID = "016"; //013, 014 슬라이드 라벨 양식
+                //        if (SaveData() == true)
+                //        {
+                //            Ftm.LogSave(this.GetType().Name, "P"); //2022-06-23 인쇄, 재발행
+                //            FillGrid();
+                //            Ftm.LogSave(this.GetType().Name, "R"); //2022-06-23 조회
+                //        }
+                //    //}
+                //}
+                //else
+                //{
+                //    ArticleTagID = "011"; //013, 014 슬라이드 라벨 양식
                     if (SaveData() == true)
                     {
                         Ftm.LogSave(this.GetType().Name, "P"); //2022-06-23 인쇄, 재발행
                         FillGrid();
                         Ftm.LogSave(this.GetType().Name, "R"); //2022-06-23 조회
                     }
-                }
+            //    }
             }
         }
         #endregion
@@ -1409,9 +1409,33 @@ namespace WizIns
                         //20171011 김종영 수정 type 변경
                         //if (list_m_tItem[i].nType == 1 && list_m_tItem[i].sName.Substring(0, 1).ToUpper() == "D")
 
-                        //if (list_m_tItem[i].nType < 2 && list_m_tItem[i].sName.Substring(0, 1).ToUpper() == "D")
+                            if (list_m_tItem[i].nType < 2 && list_m_tItem[i].sName.Substring(0, 1).ToUpper() == "D")
+                            {
+                                if (list_m_tItem[i].nRelation == 0 && list_m_tItem[i].nType == 1)//바코드
+                                {
+                                    list_m_tItem[i].sText = vData[0];
+                                }
+
+                                else if (list_m_tItem[i].nRelation > 0 && list_m_tItem[i].nType == 0)
+                                {
+                                    if (vData.Count > list_m_tItem[i].nRelation)
+                                    {
+                                        list_m_tItem[i].sText = vData[list_m_tItem[i].nRelation];
+                                    }
+                                    else
+                                    {
+                                        list_m_tItem[i].sText = "";
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                list_m_tItem[i].sText = Lib.CheckNull(dr["Text"].ToString());
+                            }
+
+                        //if (list_m_tItem[i].sName.Substring(0, 1).ToUpper() == "D")
                         //{
-                        //    if (list_m_tItem[i].nRelation == 0 && list_m_tItem[i].nType == 1)//바코드
+                        //    if (list_m_tItem[i].nRelation == 0 && list_m_tItem[i].nType == 8)//QR 바코드
                         //    {
                         //        list_m_tItem[i].sText = vData[0];
                         //    }
@@ -1432,30 +1456,6 @@ namespace WizIns
                         //{
                         //    list_m_tItem[i].sText = Lib.CheckNull(dr["Text"].ToString());
                         //}
-
-                        if (list_m_tItem[i].sName.Substring(0, 1).ToUpper() == "D")
-                        {
-                            if (list_m_tItem[i].nRelation == 0 && list_m_tItem[i].nType == 8)//QR 바코드
-                            {
-                                list_m_tItem[i].sText = vData[0];
-                            }
-
-                            else if (list_m_tItem[i].nRelation > 0 && list_m_tItem[i].nType == 0)
-                            {
-                                if (vData.Count > list_m_tItem[i].nRelation)
-                                {
-                                    list_m_tItem[i].sText = vData[list_m_tItem[i].nRelation];
-                                }
-                                else
-                                {
-                                    list_m_tItem[i].sText = "";
-                                }
-                            }
-                        }
-                        else
-                        {
-                            list_m_tItem[i].sText = Lib.CheckNull(dr["Text"].ToString());
-                        }
 
 
                     }
@@ -1498,91 +1498,91 @@ namespace WizIns
                     if (list_m_tItem[i].nVisible > 0)//출력여부
                     {
                         //'바코드
-                        //if (list_m_tItem[i].nType == WizWork.EnumItem.IO_BARCODE)
-                        //{
-                        //    if (list_m_tItem[i].nPrevItem == 0)
-                        //    {
-                        //        if (list_m_tItem[i].nBarType == 0)// 1:1 Code
-                        //        {
-                        //            sBarType[0] = "1";
-                        //            sBarType[1] = "1";
-                        //        }
-                        //        else                            // 2:5 Code
-                        //        {
-                        //            sBarType[0] = "2";
-                        //            sBarType[1] = "5";
-                        //        }
+                        if (list_m_tItem[i].nType == WizWork.EnumItem.IO_BARCODE)
+                        {
+                            if (list_m_tItem[i].nPrevItem == 0)
+                            {
+                                if (list_m_tItem[i].nBarType == 0)// 1:1 Code
+                                {
+                                    sBarType[0] = "1";
+                                    sBarType[1] = "1";
+                                }
+                                else                            // 2:5 Code
+                                {
+                                    sBarType[0] = "2";
+                                    sBarType[1] = "5";
+                                }
 
-                        //        string ReadAble = "0"; // 1 : 자동 바코드 출력 / 0 : 안보임
+                                string ReadAble = "0"; // 1 : 자동 바코드 출력 / 0 : 안보임
 
-                        //        WizWork.TSCLIB_DLL.barcode(list_m_tItem[i].x.ToString(), // x
-                        //                           list_m_tItem[i].y.ToString(), // y
-                        //                           "39", // type
-                        //                           list_m_tItem[i].nBarHeight.ToString(), // height
-                        //                           ReadAble, // ReadAble
-                        //                           list_m_tItem[i].nRotation.ToString(), // Rotation
-                        //                           sBarType[0], // Narrow
-                        //                           sBarType[1], // Wide
-                        //                           list_m_tItem[0].sText
-                        //                           );
+                                WizWork.TSCLIB_DLL.barcode(list_m_tItem[i].x.ToString(), // x
+                                                   list_m_tItem[i].y.ToString(), // y
+                                                   "39", // type
+                                                   list_m_tItem[i].nBarHeight.ToString(), // height
+                                                   ReadAble, // ReadAble
+                                                   list_m_tItem[i].nRotation.ToString(), // Rotation
+                                                   sBarType[0], // Narrow
+                                                   sBarType[1], // Wide
+                                                   list_m_tItem[0].sText
+                                                   );
 
-                        //        if (ReadAble.Equals("0"))
-                        //        {
-                        //            // 바코드 글자 세팅
-                        //            int intx = list_m_tItem[i].x;
-                        //            int inty = list_m_tItem[i].y + 46;
-                        //            int fontheight = 50;
-                        //            int rotation = 0;
-                        //            int fontstyle = 0;
-                        //            int fontunderline = 0;
-                        //            string FaceName = "맑은 고딕";
-                        //            string content = Lib.CheckNull(list_m_tItem[i].sText).Trim();
+                                if (ReadAble.Equals("0"))
+                                {
+                                    // 바코드 글자 세팅
+                                    int intx = list_m_tItem[i].x;
+                                    int inty = list_m_tItem[i].y + 46;
+                                    int fontheight = 50;
+                                    int rotation = 0;
+                                    int fontstyle = 0;
+                                    int fontunderline = 0;
+                                    string FaceName = "맑은 고딕";
+                                    string content = Lib.CheckNull(list_m_tItem[i].sText).Trim();
 
-                        //            WizWork.TSCLIB_DLL.windowsfont(intx, inty, fontheight, rotation, fontstyle, fontunderline, FaceName, content);
-                        //        }
-                        //    }
-                        //}
+                                    WizWork.TSCLIB_DLL.windowsfont(intx, inty, fontheight, rotation, fontstyle, fontunderline, FaceName, content);
+                                }
+                            }
+                        }
 
                         //'QR CODE
-                        if (list_m_tItem[i].nType == WizWork.EnumItem.IO_QRcode)
-                        {
-                            //QRCODE x, y, ECC Level,cell width, mode, rotation,[model, mask,]"content"
+                        //if (list_m_tItem[i].nType == WizWork.EnumItem.IO_QRcode)
+                        //{
+                        //    //QRCODE x, y, ECC Level,cell width, mode, rotation,[model, mask,]"content"
 
-                            string qr_command = "QRCODE " + list_m_tItem[i].x.ToString() + "," +
-                                        list_m_tItem[i].y.ToString() + "," +
-                                        "M" + "," +     // ECC Level (L,M,Q,H)
-                                        list_m_tItem[i].nFigureWidth.ToString() + "," +
-                                        "M" + "," +         // MODE (A,M)
-                                        "0" + "," +
-                                        "M2" + "," +
-                                        "S1" + "," +
-                                        //list_m_tItem[i].sText;
-                                        "\"A" + list_m_tItem[0].sText + "\"";
-
-
-                            //string qr_command = "QRCODE 100,80,L,7,M,0,M2,S1," + "\"A" + list_m_tItem[0].sText + "\"";
-
-                            WizWork.TSCLIB_DLL.sendcommand(qr_command);
+                        //    string qr_command = "QRCODE " + list_m_tItem[i].x.ToString() + "," +
+                        //                list_m_tItem[i].y.ToString() + "," +
+                        //                "M" + "," +     // ECC Level (L,M,Q,H)
+                        //                list_m_tItem[i].nFigureWidth.ToString() + "," +
+                        //                "M" + "," +         // MODE (A,M)
+                        //                "0" + "," +
+                        //                "M2" + "," +
+                        //                "S1" + "," +
+                        //                //list_m_tItem[i].sText;
+                        //                "\"A" + list_m_tItem[0].sText + "\"";
 
 
-                            string ReadAble = "0";
+                        //    //string qr_command = "QRCODE 100,80,L,7,M,0,M2,S1," + "\"A" + list_m_tItem[0].sText + "\"";
 
-                            if (ReadAble.Equals("0"))
-                            {
-                                // 바코드 글자 세팅
-                                int intx = list_m_tItem[i].x - 350;
-                                int inty = list_m_tItem[i].y + 150;
-                                int fontheight = 50;
-                                int rotation = 0;
-                                int fontstyle = 2;
-                                int fontunderline = 0;
-                                string FaceName = "맑은 고딕";
-                                string content = Lib.CheckNull(list_m_tItem[i].sText).Trim();
+                        //    WizWork.TSCLIB_DLL.sendcommand(qr_command);
 
-                                WizWork.TSCLIB_DLL.windowsfont(intx, inty, fontheight, rotation, fontstyle, fontunderline, FaceName, content);
-                            }
 
-                        }
+                        //    string ReadAble = "0";
+
+                        //    if (ReadAble.Equals("0"))
+                        //    {
+                        //        // 바코드 글자 세팅
+                        //        int intx = list_m_tItem[i].x - 350;
+                        //        int inty = list_m_tItem[i].y + 150;
+                        //        int fontheight = 50;
+                        //        int rotation = 0;
+                        //        int fontstyle = 2;
+                        //        int fontunderline = 0;
+                        //        string FaceName = "맑은 고딕";
+                        //        string content = Lib.CheckNull(list_m_tItem[i].sText).Trim();
+
+                        //        WizWork.TSCLIB_DLL.windowsfont(intx, inty, fontheight, rotation, fontstyle, fontunderline, FaceName, content);
+                        //    }
+
+                        //}
 
 
                         //데이터 OR 문자
@@ -1636,10 +1636,10 @@ namespace WizIns
 
                     }
                 }
-                if (m_ProcessID == "0405")
-                {
-                    nPrintCount = 2;
-                }
+                //if (m_ProcessID == "0405")
+                //{
+                //    nPrintCount = 2;
+                //}
 
                 WizWork.TSCLIB_DLL.printlabel("1", nPrintCount.ToString());
 

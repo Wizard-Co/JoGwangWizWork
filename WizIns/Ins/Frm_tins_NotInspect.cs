@@ -497,8 +497,8 @@ namespace WizIns
         // 검사 등록 버튼 클릭 이벤트
         private void btnStart_Click(object sender, EventArgs e)
         {
-            if (CheckInspect() == true)
-            {
+            //if (CheckInspect() == true)
+            //{
                 if (CheckBeforeStart() == false) { return; }
 
                 #region 포장 라벨이 새롭게 나오는 경우
@@ -523,7 +523,7 @@ namespace WizIns
                 //    FillGrid();
                 //}
                 #endregion
-            }
+            //}
         }
 
         // 전체 선택 체크 이벤트

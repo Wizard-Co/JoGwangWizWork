@@ -421,14 +421,14 @@ namespace WizWork
 
                 g_sPrinterName = Lib.GetDefaultPrinter();
 
-                if (g_sPrinterName.Contains("검사") || g_sPrinterName.Contains("생산"))
-                {
+                //if (g_sPrinterName.Contains("검사") || g_sPrinterName.Contains("생산"))
+                //{
 
-                    if (SetDefaultPrinter("TSC TTP-243 Pro 생산"))
-                    {
-                        g_sPrinterName = Lib.GetDefaultPrinter();
-                    }
-                }
+                //    if (SetDefaultPrinter("TSC TTP-243 Pro 생산"))
+                //    {
+                //        g_sPrinterName = Lib.GetDefaultPrinter();
+                //    }
+                //}
 
                 TSCLIB_DLL.openport(g_sPrinterName);//2021-11-29 한번만 열기
 
@@ -484,8 +484,8 @@ namespace WizWork
 
                                 list_Data.Add((string.Format("{0:n0}", (int)douworkqty)) + " EA");// _수량
 
-                                //list_Data.Add(Lib.CheckNull(dr["wk_Name"].ToString()));// 작업자
-                                list_Data.Add(Lib.MakeDate(WizWorkLib.DateTimeClss.DF_FD, Lib.CheckNull(dr["StartDate"].ToString())));//D_지시일자
+                                list_Data.Add(Lib.CheckNull(dr["wk_Name"].ToString()));// 작업자
+                                //list_Data.Add(Lib.MakeDate(WizWorkLib.DateTimeClss.DF_FD, Lib.CheckNull(dr["StartDate"].ToString())));//D_지시일자
                                 list_Data.Add(Lib.MakeDate(WizWorkLib.DateTimeClss.DF_FD, Lib.CheckNull(dr["wk_ResultDate"].ToString())));//D_생산일자
 
                                 //list_Data.Add(Lib.CheckNull(dr["BuyerArticleNo"].ToString()));// 품번

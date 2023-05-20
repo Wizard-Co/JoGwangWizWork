@@ -42,13 +42,13 @@
             this.btnInfo = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnChoiceWorker = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.btnChoiceWorker = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.PersonBox = new System.Windows.Forms.TextBox();
             this.txtPersonBox = new System.Windows.Forms.TextBox();
-            this.btnExit = new System.Windows.Forms.Button();
             this.stsInfo.SuspendLayout();
             this.tlpTop.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -149,24 +149,22 @@
             // 
             // tlpTop
             // 
-            this.tlpTop.ColumnCount = 8;
-            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tlpTop.ColumnCount = 7;
+            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpTop.Controls.Add(this.btnInfo, 0, 0);
-            this.tlpTop.Controls.Add(this.button3, 4, 0);
+            this.tlpTop.Controls.Add(this.button3, 3, 0);
             this.tlpTop.Controls.Add(this.button1, 1, 0);
-            this.tlpTop.Controls.Add(this.btnExit, 7, 0);
-            this.tlpTop.Controls.Add(this.button4, 3, 0);
+            this.tlpTop.Controls.Add(this.btnExit, 6, 0);
             this.tlpTop.Controls.Add(this.button2, 2, 0);
-            this.tlpTop.Controls.Add(this.btnChoiceWorker, 5, 0);
-            this.tlpTop.Controls.Add(this.tableLayoutPanel1, 6, 0);
+            this.tlpTop.Controls.Add(this.btnChoiceWorker, 4, 0);
+            this.tlpTop.Controls.Add(this.tableLayoutPanel1, 5, 0);
             this.tlpTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.tlpTop.Location = new System.Drawing.Point(0, 0);
             this.tlpTop.Margin = new System.Windows.Forms.Padding(0);
@@ -189,7 +187,7 @@
             this.btnInfo.Location = new System.Drawing.Point(0, 0);
             this.btnInfo.Margin = new System.Windows.Forms.Padding(0);
             this.btnInfo.Name = "btnInfo";
-            this.btnInfo.Size = new System.Drawing.Size(125, 84);
+            this.btnInfo.Size = new System.Drawing.Size(143, 84);
             this.btnInfo.TabIndex = 0;
             this.btnInfo.Tag = "0";
             this.btnInfo.Text = "공지사항";
@@ -207,10 +205,10 @@
             this.button3.Font = new System.Drawing.Font("맑은 고딕", 10.5F, System.Drawing.FontStyle.Bold);
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.Location = new System.Drawing.Point(500, 0);
+            this.button3.Location = new System.Drawing.Point(429, 0);
             this.button3.Margin = new System.Windows.Forms.Padding(0);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(125, 84);
+            this.button3.Size = new System.Drawing.Size(143, 84);
             this.button3.TabIndex = 7;
             this.button3.Tag = "3";
             this.button3.Text = "전수검사 실적 \r\n조회";
@@ -228,10 +226,10 @@
             this.button1.Font = new System.Drawing.Font("맑은 고딕", 10.5F, System.Drawing.FontStyle.Bold);
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(125, 0);
+            this.button1.Location = new System.Drawing.Point(143, 0);
             this.button1.Margin = new System.Windows.Forms.Padding(0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 84);
+            this.button1.Size = new System.Drawing.Size(143, 84);
             this.button1.TabIndex = 7;
             this.button1.Tag = "1";
             this.button1.Text = "미검사 실적 조회";
@@ -239,37 +237,38 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.btnControl_Click);
             // 
-            // btnChoiceWorker
+            // btnExit
             // 
-            this.btnChoiceWorker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(194)))), ((int)(((byte)(133)))));
-            this.btnChoiceWorker.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnChoiceWorker.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnChoiceWorker.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnChoiceWorker.Font = new System.Drawing.Font("맑은 고딕", 10.5F, System.Drawing.FontStyle.Bold);
-            this.btnChoiceWorker.Image = ((System.Drawing.Image)(resources.GetObject("btnChoiceWorker.Image")));
-            this.btnChoiceWorker.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnChoiceWorker.Location = new System.Drawing.Point(625, 0);
-            this.btnChoiceWorker.Margin = new System.Windows.Forms.Padding(0);
-            this.btnChoiceWorker.Name = "btnChoiceWorker";
-            this.btnChoiceWorker.Size = new System.Drawing.Size(125, 84);
-            this.btnChoiceWorker.TabIndex = 21;
-            this.btnChoiceWorker.Tag = "4";
-            this.btnChoiceWorker.Text = "작업자 선택";
-            this.btnChoiceWorker.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnChoiceWorker.UseVisualStyleBackColor = false;
-            this.btnChoiceWorker.Click += new System.EventHandler(this.btnControl_Click);
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(162)))), ((int)(((byte)(143)))));
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnExit.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExit.Font = new System.Drawing.Font("맑은 고딕", 10.5F, System.Drawing.FontStyle.Bold);
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnExit.Location = new System.Drawing.Point(858, 0);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(147, 84);
+            this.btnExit.TabIndex = 3;
+            this.btnExit.Tag = "9";
+            this.btnExit.Text = "작업종료";
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnControl_Click);
             // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(108)))), ((int)(((byte)(128)))));
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button4.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button4.Font = new System.Drawing.Font("맑은 고딕", 10.5F, System.Drawing.FontStyle.Bold);
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button4.Location = new System.Drawing.Point(375, 0);
+            this.button4.Location = new System.Drawing.Point(880, 84);
             this.button4.Margin = new System.Windows.Forms.Padding(0);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(125, 84);
@@ -278,6 +277,7 @@
             this.button4.Text = "최종 검사기 자료 수집";
             this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Visible = false;
             this.button4.Click += new System.EventHandler(this.btnControl_Click);
             // 
             // button2
@@ -290,16 +290,36 @@
             this.button2.Font = new System.Drawing.Font("맑은 고딕", 10.5F, System.Drawing.FontStyle.Bold);
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(250, 0);
+            this.button2.Location = new System.Drawing.Point(286, 0);
             this.button2.Margin = new System.Windows.Forms.Padding(0);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(125, 84);
+            this.button2.Size = new System.Drawing.Size(143, 84);
             this.button2.TabIndex = 12;
             this.button2.Tag = "2";
             this.button2.Text = "전수 검사";
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.btnControl_Click);
+            // 
+            // btnChoiceWorker
+            // 
+            this.btnChoiceWorker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(194)))), ((int)(((byte)(133)))));
+            this.btnChoiceWorker.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnChoiceWorker.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnChoiceWorker.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnChoiceWorker.Font = new System.Drawing.Font("맑은 고딕", 10.5F, System.Drawing.FontStyle.Bold);
+            this.btnChoiceWorker.Image = ((System.Drawing.Image)(resources.GetObject("btnChoiceWorker.Image")));
+            this.btnChoiceWorker.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnChoiceWorker.Location = new System.Drawing.Point(572, 0);
+            this.btnChoiceWorker.Margin = new System.Windows.Forms.Padding(0);
+            this.btnChoiceWorker.Name = "btnChoiceWorker";
+            this.btnChoiceWorker.Size = new System.Drawing.Size(143, 84);
+            this.btnChoiceWorker.TabIndex = 21;
+            this.btnChoiceWorker.Tag = "4";
+            this.btnChoiceWorker.Text = "작업자 선택";
+            this.btnChoiceWorker.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnChoiceWorker.UseVisualStyleBackColor = false;
+            this.btnChoiceWorker.Click += new System.EventHandler(this.btnControl_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -310,12 +330,12 @@
             this.tableLayoutPanel1.Controls.Add(this.PersonBox, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtPersonBox, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(753, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(718, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(119, 78);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(137, 78);
             this.tableLayoutPanel1.TabIndex = 22;
             // 
             // PersonBox
@@ -328,7 +348,7 @@
             this.PersonBox.Margin = new System.Windows.Forms.Padding(0);
             this.PersonBox.Name = "PersonBox";
             this.PersonBox.ReadOnly = true;
-            this.PersonBox.Size = new System.Drawing.Size(115, 36);
+            this.PersonBox.Size = new System.Drawing.Size(133, 36);
             this.PersonBox.TabIndex = 0;
             this.PersonBox.Text = "작업자";
             this.PersonBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -345,28 +365,6 @@
             this.txtPersonBox.TabIndex = 1;
             this.txtPersonBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btnExit
-            // 
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(162)))), ((int)(((byte)(143)))));
-            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnExit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnExit.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnExit.Font = new System.Drawing.Font("맑은 고딕", 10.5F, System.Drawing.FontStyle.Bold);
-            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnExit.Location = new System.Drawing.Point(875, 0);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(0);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(130, 84);
-            this.btnExit.TabIndex = 3;
-            this.btnExit.Tag = "9";
-            this.btnExit.Text = "작업종료";
-            this.btnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnControl_Click);
-            // 
             // Frm_tins_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -374,6 +372,7 @@
             this.ClientSize = new System.Drawing.Size(1005, 685);
             this.Controls.Add(this.tlpTop);
             this.Controls.Add(this.stsInfo);
+            this.Controls.Add(this.button4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.IsMdiContainer = true;
             this.MaximumSize = new System.Drawing.Size(1021, 724);

@@ -131,7 +131,15 @@ namespace WizWork
 
                 DataStore.Instance.SetConnectionString(POPServerIPAddress, ConnectionInfo.POPServerLoginID, ConnectionInfo.POPServerPassword, DBCatalog_MES);//, ConnectionInfo.DBCatalog_LOG);
                 DataStore.Log_Instance.L_SetConnectionString(POPServerIPAddress, ConnectionInfo.POPServerLoginID, ConnectionInfo.POPServerPassword, ConnectionInfo.DBCatalog_LOG);
-                
+
+                //통신 DB 연결
+                DataStore.Instance2.SetConnectionString2(POPServerIPAddress, ConnectionInfo.POPServerLoginID, ConnectionInfo.POPServerPassword, DBCatalog_MES);//, ConnectionInfo.DBCatalog_LOG);
+                DataStore.Log_Instance2.L_SetConnectionString2(POPServerIPAddress, ConnectionInfo.POPServerLoginID, ConnectionInfo.POPServerPassword, ConnectionInfo.DBCatalog_LOG);
+
+                //타이머 DB 연결
+                DataStore.Instance3.SetConnectionString3(POPServerIPAddress, ConnectionInfo.POPServerLoginID, ConnectionInfo.POPServerPassword, DBCatalog_MES);//, ConnectionInfo.DBCatalog_LOG);
+                DataStore.Log_Instance3.L_SetConnectionString3(POPServerIPAddress, ConnectionInfo.POPServerLoginID, ConnectionInfo.POPServerPassword, ConnectionInfo.DBCatalog_LOG);
+
                 Application.EnableVisualStyles();
 
                 Application.SetCompatibleTextRenderingDefault(false);

@@ -13,8 +13,10 @@ using WizCommon;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using WizWork.SamJoo;
+using System.IO.Ports; //2021-11-20 추가
 using System.Net;
 using System.Net.Sockets;
+using System.Text.RegularExpressions; //2023-04-08 문자열 찾기
 
 
 namespace WizWork
@@ -28,6 +30,15 @@ namespace WizWork
         int i = 0;//상단버튼 switch문용 정수
         POPUP.Frm_CMNumericKeypad keypad = null;
         bool blOpen = false;
+
+        //통신관련 변수
+        int WorkQty = 0;         //2021-11-20
+        int DefectQty = 0;       //2021-11-20
+        //int iRecSizeRemain;     //2021-11-24
+        //int count;              //2021-11-24
+        //int IRecSize2 = 0;      //2023-03-30
+        string strRxData;       //2023-03-30
+        string strRxData2;       //2023-03-30
         //
         public static WizWorkLib Lib = new WizWorkLib();
         public static INI_GS gs = new INI_GS();
@@ -392,6 +403,22 @@ namespace WizWork
                     //    }
                     //    break;
 
+                    case 16:  //포트연결
+                        btnimage(16);
+                        SerialPort(); //포트연결
+                        break;
+
+                    case 17:  //현장호출
+                        btnimage(17);
+                        frm_tprc_WorkCall_U child11 = new frm_tprc_WorkCall_U();
+                        child11.StartPosition = FormStartPosition.CenterScreen;
+                        child11.Owner = this;
+                        if (child11.ShowDialog() == DialogResult.OK)
+                        {
+
+                        };
+                        break;            
+
                     case 18:
                         btnimage(18);
                         frm_tprc_setProcess child9 = new frm_tprc_setProcess(true);//NoWork == true라는 bool값
@@ -584,7 +611,9 @@ namespace WizWork
                 btnRePrint.BackgroundImage = null;
                 btnWorkQ.BackgroundImage = null;
                 btnChoiceWorker.BackgroundImage = null;
+                btnComport.BackgroundImage = null;
                 btnSetting.BackgroundImage = null;
+                btnCall.BackgroundImage = null;
                 btnExit.BackgroundImage = null;
             }
             else if (casenum == 1)
@@ -598,7 +627,9 @@ namespace WizWork
                 btnRePrint.BackgroundImage = null;
                 btnWorkQ.BackgroundImage = null;
                 btnChoiceWorker.BackgroundImage = null;
+                btnComport.BackgroundImage = null;
                 btnSetting.BackgroundImage = null;
+                btnCall.BackgroundImage = null;
                 btnExit.BackgroundImage = null;
             }
             else if (casenum == 2)
@@ -612,7 +643,9 @@ namespace WizWork
                 btnRePrint.BackgroundImage = null;
                 btnWorkQ.BackgroundImage = null;
                 btnChoiceWorker.BackgroundImage = null;
+                btnComport.BackgroundImage = null;
                 btnSetting.BackgroundImage = null;
+                btnCall.BackgroundImage = null;
                 btnExit.BackgroundImage = null;
             }
             else if (casenum == 3)
@@ -626,7 +659,9 @@ namespace WizWork
                 btnRePrint.BackgroundImage = null;
                 btnWorkQ.BackgroundImage = null;
                 btnChoiceWorker.BackgroundImage = null;
+                btnComport.BackgroundImage = null;
                 btnSetting.BackgroundImage = null;
+                btnCall.BackgroundImage = null;
                 btnExit.BackgroundImage = null;
             }
             else if (casenum == 4)
@@ -640,7 +675,9 @@ namespace WizWork
                 btnRePrint.BackgroundImage = null;
                 btnWorkQ.BackgroundImage = null;
                 btnChoiceWorker.BackgroundImage = null;
+                btnComport.BackgroundImage = null;
                 btnSetting.BackgroundImage = null;
+                btnCall.BackgroundImage = null;
                 btnExit.BackgroundImage = null;
             }
             else if (casenum == 5)
@@ -654,7 +691,9 @@ namespace WizWork
                 btnRePrint.BackgroundImage = null;
                 btnWorkQ.BackgroundImage = null;
                 btnChoiceWorker.BackgroundImage = null;
+                btnComport.BackgroundImage = null;
                 btnSetting.BackgroundImage = null;
+                btnCall.BackgroundImage = null;
                 btnExit.BackgroundImage = null;
             }
             else if (casenum == 6)
@@ -668,7 +707,9 @@ namespace WizWork
                 btnMove.BackgroundImage = null;
                 btnWorkQ.BackgroundImage = null;
                 btnChoiceWorker.BackgroundImage = null;
+                btnComport.BackgroundImage = null;
                 btnSetting.BackgroundImage = null;
+                btnCall.BackgroundImage = null;
                 btnExit.BackgroundImage = null;
             }
             else if (casenum == 7)
@@ -682,7 +723,41 @@ namespace WizWork
                 btnMove.BackgroundImage = null;
                 btnRePrint.BackgroundImage = null;
                 btnChoiceWorker.BackgroundImage = null;
+                btnComport.BackgroundImage = null;
                 btnSetting.BackgroundImage = null;
+                btnCall.BackgroundImage = null;
+                btnExit.BackgroundImage = null;
+            }
+            else if (casenum == 16)
+            {
+                btnComport.BackgroundImage = Properties.Resources.correct_mark__1_;
+                btnInfo.BackgroundImage = null;
+                btnDailyCheck.BackgroundImage = null;
+                btnInsInspectAuto.BackgroundImage = null;
+                btnWork.BackgroundImage = null;
+                btnNoWork.BackgroundImage = null;
+                btnMove.BackgroundImage = null; 
+                btnRePrint.BackgroundImage = null;
+                btnWorkQ.BackgroundImage = null;
+                btnChoiceWorker.BackgroundImage = null;
+                btnSetting.BackgroundImage = null;
+                btnCall.BackgroundImage = null;
+                btnExit.BackgroundImage = null;
+            }
+            else if (casenum == 17)
+            {
+                btnCall.BackgroundImage = Properties.Resources.correct_mark__1_;
+                btnInfo.BackgroundImage = null;
+                btnDailyCheck.BackgroundImage = null;
+                btnInsInspectAuto.BackgroundImage = null;
+                btnWork.BackgroundImage = null;
+                btnNoWork.BackgroundImage = null;
+                btnMove.BackgroundImage = null;
+                btnRePrint.BackgroundImage = null;
+                btnWorkQ.BackgroundImage = null;
+                btnComport.BackgroundImage = null;
+                btnSetting.BackgroundImage = null;
+                btnChoiceWorker.BackgroundImage = null;
                 btnExit.BackgroundImage = null;
             }
             else if (casenum == 18)
@@ -696,7 +771,9 @@ namespace WizWork
                 btnMove.BackgroundImage = null;
                 btnRePrint.BackgroundImage = null;
                 btnWorkQ.BackgroundImage = null;
+                btnComport.BackgroundImage = null;
                 btnSetting.BackgroundImage = null;
+                btnCall.BackgroundImage = null;
                 btnExit.BackgroundImage = null;
             }
             else if (casenum == 19)
@@ -711,6 +788,8 @@ namespace WizWork
                 btnRePrint.BackgroundImage = null;
                 btnWorkQ.BackgroundImage = null;
                 btnChoiceWorker.BackgroundImage = null;
+                btnComport.BackgroundImage = null;
+                btnCall.BackgroundImage = null;
                 btnExit.BackgroundImage = null;
             }
             else if (casenum == 20)
@@ -725,7 +804,9 @@ namespace WizWork
                 btnRePrint.BackgroundImage = null;
                 btnWorkQ.BackgroundImage = null;
                 btnChoiceWorker.BackgroundImage = null;
+                btnComport.BackgroundImage = null;
                 btnSetting.BackgroundImage = null;
+                btnCall.BackgroundImage = null;
             }
         }
 
@@ -880,7 +961,9 @@ namespace WizWork
             //btnDailyCheckQ.Text = "설비\r\n점검";
 
             btnChoiceWorker.Text = "작업자\r\n선택";
+            btnComport.Text = "포트\r\n연결";
             btnSetting.Text = "환경\r\n설정";
+            btnCall.Text = "현장\r\n호출";
             btnExit.Text = "작업\r\n종료";
 
             //버튼.Tag = 폼명
@@ -901,6 +984,9 @@ namespace WizWork
             //btnMissWorkQ.Tag = "11";
             //btnDailyCheckQ.Tag = "12";
             //btnDailyMoldQ.Tag = "13";
+
+            btnComport.Tag = "16"; //포트연결
+            btnCall.Tag = "17";    //현장호출
 
             btnChoiceWorker.Tag = "18";
             btnSetting.Tag = "19";
@@ -1006,6 +1092,540 @@ namespace WizWork
 
         #endregion
 
+
+        #region 포트 설정
+
+        private void SerialPort() //2021-11-20 통신 함수
+        {
+            try
+            {
+                FTP_EX _ftp = null;
+                INI_GS gs = new INI_GS();
+                string m_PortName = "";
+
+                m_PortName = gs.GetValue("COMPort", "Deva", "1"); //2021-12-11 COMPort 1번 사용
+
+                if (m_PortName == "0")
+                {
+                    WizCommon.Popup.MyMessageBox.ShowBox("Encoder를 확인하세요.", "Port연결 오류.", 3, 1);
+                }
+                else
+                {
+                    GetSerial(m_PortName);
+                }
+            }
+
+            catch (Exception excpt)
+            {
+                WizCommon.Popup.MyMessageBox.ShowBox("Encoder를 확인하세요.", "Port연결 오류.", 3, 1);
+            }
+        }
+
+
+
+        private void GetSerial(String PortNum) //2021-11-20 통신 함수
+        {
+            try
+            {
+                if (serialPort1.IsOpen == false)
+                {
+                    serialPort1.PortName = "COM" + PortNum;
+                    serialPort1.BaudRate = 19200;
+                    serialPort1.DataBits = 8;
+                    serialPort1.StopBits = StopBits.One;
+                    serialPort1.Parity = Parity.None;
+                    //serialPort1.DataReceived += new SerialDataReceivedEventHandler(serialPort1_DataReceived);
+                    serialPort1.Open();                                               // abcd\r\n Send
+
+                    //btnComport.BackColor = System.Drawing.Color.Green;
+                    //btnComport.Text = "포트 재연결\r\n연결";
+                    WizCommon.Popup.MyMessageBox.ShowBox("Port가 연결 되었습니다.", "연결 완료", 3, 1);
+                }
+                else
+                {
+                    serialPort1.Close();
+
+                    serialPort1.PortName = "COM" + PortNum;
+                    serialPort1.BaudRate = 19200;
+                    serialPort1.DataBits = 8;
+                    serialPort1.StopBits = StopBits.One;
+                    serialPort1.Parity = Parity.None;
+                    //serialPort1.DataReceived += new SerialDataReceivedEventHandler(serialPort1_DataReceived);
+                    serialPort1.Open();                                               // abcd\r\n Send
+
+                    //btnComport.BackColor = System.Drawing.Color.Green;
+                    //btnComport.Text = "포트 재연결\r\n연결";
+                    WizCommon.Popup.MyMessageBox.ShowBox("Port가 연결 되었습니다.", "연결 완료", 3, 1);
+                }
+
+            }
+
+            catch (Exception excpt)
+            {
+                WizCommon.Popup.MyMessageBox.ShowBox("Encoder를 확인하세요.", "Port연결 오류", 3, 1);
+                serialPort1.Close();
+                //btnComport.BackColor = System.Drawing.Color.Red;
+                //btnComport.Text = "포트 \r\n연결X";
+            }
+        }
+
+
+
+        #endregion
+
+        #region 통신 받아오는 함수
+
+        private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+
+            try
+            {
+                int iRecSize = serialPort1.BytesToRead; // 수신된 데이터 갯수
+                //int IRecSize2 = 0;                      //데이터가 짤려서 들어올 경우를 위해 데이터를 쌓아서 처리해야 되는 경우에 필요한 변수
+                //string strRxData;
+                string rsvdata = "";   //P1
+                string rsvdata2 = "";  //P2               
+                string DefectYN = ""; 
+                string Comments = ""; 
+                string InsValue = "";
+              
+
+                byte[] buff = new byte[iRecSize];
+
+                serialPort1.Read(buff, 0, iRecSize);
+
+                //데이터가 짤려서 여러번 들어올 경우를 위해 조건 추가
+                if (strRxData2 != "")
+                {
+                    strRxData2 += Encoding.UTF8.GetString(buff, 0, iRecSize);
+                    MatchCollection matches = Regex.Matches(strRxData2, "\n\r");
+
+                    if (matches.Count > 0)
+                    {
+                        //IRecSize2 = iRecSize;
+                        //strRxData = Encoding.UTF8.GetString(buff, 0, iRecSize);
+
+                        matches = Regex.Matches(strRxData2, "P1");
+
+                        if (matches.Count > 0)
+                        {
+                            matches = Regex.Matches(strRxData2, "P2");
+
+                            //P1,P2 같이 있는 경우
+                            if (matches.Count > 0)
+                            {
+                                //P1
+                                rsvdata = strRxData2.Substring(1, 12);
+
+                                if (rsvdata.Contains("-"))
+                                {
+                                    rsvdata = rsvdata.Replace("-", "");
+                                }
+
+                                rsvdata = rsvdata.Replace("\n", "").Replace("\r", "");
+                                //P2
+                                rsvdata2 = strRxData2.Substring(13);
+
+                                if (rsvdata2.Contains("-"))
+                                {
+                                    rsvdata2 = rsvdata2.Replace("-", "");
+                                }
+
+                                rsvdata2 = rsvdata2.Replace("\n", "").Replace("\r", "");
+                                //P1
+                                if (rsvdata.Contains("NG"))
+                                {
+                                    DefectQty = 1;
+                                    WorkQty = 0;
+                                    DefectYN = "NG";
+                                }
+                                else
+                                {
+                                    WorkQty = 1;
+                                    DefectQty = 0;
+                                    DefectYN = "OK";
+                                }
+
+                                Comments = rsvdata.Substring(0, 2);
+                                InsValue = rsvdata.Substring(3, 5);
+                                //InsValue = Lib.ConvertDouble(rsvdata.Substring(3, 6));
+
+                                Dictionary<string, object> sqlParameter = new Dictionary<string, object>();
+                                sqlParameter.Add("WorkQty", WorkQty);
+                                sqlParameter.Add("DefectQty", DefectQty);
+                                sqlParameter.Add("sComments", Comments);
+                                sqlParameter.Add("DefectYN", DefectYN);
+                                sqlParameter.Add("InsValue", Lib.ConvertDouble(InsValue));
+                                DataTable dt = DataStore.Instance2.ProcedureToDataTable2("[xp_wkWork_iWorkLog_JoGwang]", sqlParameter, false);
+                                foreach (DataColumn dc in dt.Columns)
+                                {
+                                    if (dc.ColumnName == "error")
+                                    {
+                                        WizCommon.Popup.MyMessageBox.ShowBox("관리자에게 문의", "통신 오류", 3, 1);
+                                        return;
+                                    }
+                                }
+
+                                //P2
+                                if (rsvdata2.Contains("N"))
+                                {
+                                    DefectQty = 1;
+                                    WorkQty = 0;
+                                    DefectYN = "NG";
+                                }
+                                else
+                                {
+                                    WorkQty = 1;
+                                    DefectQty = 0;
+                                    DefectYN = "OK";
+                                }
+
+                                Comments = rsvdata2.Substring(0, 2);
+                                InsValue = rsvdata2.Substring(3, 6);
+                                //InsValue = Lib.ConvertDouble(rsvdata.Substring(3, 6));
+
+                                Dictionary<string, object> sqlParameter2 = new Dictionary<string, object>();
+                                sqlParameter2.Add("WorkQty", WorkQty);
+                                sqlParameter2.Add("DefectQty", DefectQty);
+                                sqlParameter2.Add("sComments", Comments);
+                                sqlParameter2.Add("DefectYN", DefectYN);
+                                sqlParameter2.Add("InsValue", Lib.ConvertDouble(InsValue));
+                                DataTable dt2 = DataStore.Instance2.ProcedureToDataTable2("[xp_wkWork_iWorkLog_JoGwang]", sqlParameter2, false);
+                                foreach (DataColumn dc2 in dt2.Columns)
+                                {
+                                    if (dc2.ColumnName == "error")
+                                    {
+                                        WizCommon.Popup.MyMessageBox.ShowBox("관리자에게 문의", "통신 오류", 3, 1);
+                                        return;
+                                    }
+                                }
+
+                                //IRecSize2 = 0;
+                                strRxData2 = "";
+                            }
+                            else //P1만 있는 경우
+                            {
+                                //P1
+                                rsvdata = strRxData2.Substring(1, 12);
+
+                                MessageBox.Show(rsvdata);
+
+                                if (rsvdata.Contains("-"))
+                                {
+                                    rsvdata = rsvdata.Replace("-", "");
+                                }
+
+                                rsvdata = rsvdata.Replace("\n", "").Replace("\r", "");
+
+                                //P1
+                                if (strRxData2.Contains("NG"))
+                                {
+                                    DefectQty = 1;
+                                    WorkQty = 0;
+                                    DefectYN = "NG";
+                                }
+                                else
+                                {
+                                    WorkQty = 1;
+                                    DefectQty = 0;
+                                    DefectYN = "OK";
+                                }
+
+                                Comments = rsvdata.Substring(0, 2);
+                                InsValue = rsvdata.Substring(3, 5);
+                                //InsValue = Lib.ConvertDouble(rsvdata.Substring(3, 6));
+
+                                Dictionary<string, object> sqlParameter = new Dictionary<string, object>();
+                                sqlParameter.Add("WorkQty", WorkQty);
+                                sqlParameter.Add("DefectQty", DefectQty);
+                                sqlParameter.Add("sComments", Comments);
+                                sqlParameter.Add("DefectYN", DefectYN);
+                                sqlParameter.Add("InsValue", Lib.ConvertDouble(InsValue));
+                                DataTable dt = DataStore.Instance2.ProcedureToDataTable2("[xp_wkWork_iWorkLog_JoGwang]", sqlParameter, false);
+                                foreach (DataColumn dc in dt.Columns)
+                                {
+                                    if (dc.ColumnName == "error")
+                                    {
+                                        WizCommon.Popup.MyMessageBox.ShowBox("관리자에게 문의", "통신 오류", 3, 1);
+                                        return;
+                                    }
+                                }
+
+                                strRxData2 = "";
+                            }
+                        }
+                        else //P2만 있는 경우
+                        {
+                            matches = Regex.Matches(strRxData2, "P2");
+                            if (matches.Count > 0)
+                            {
+                                rsvdata2 = strRxData2.Substring(1, 12);
+                                rsvdata2 = rsvdata2.Replace("\n", "").Replace("\r", "");
+
+                                if (strRxData2.Contains("NG"))
+                                {
+                                    DefectQty = 1;
+                                    WorkQty = 0;
+                                    DefectYN = "NG";
+                                }
+                                else
+                                {
+                                    WorkQty = 1;
+                                    DefectQty = 0;
+                                    DefectYN = "OK";
+                                }
+
+                                Comments = rsvdata2.Substring(0, 2);
+                                InsValue = rsvdata2.Substring(3, 5);
+                                //InsValue = Lib.ConvertDouble(rsvdata.Substring(3, 6));
+
+                                Dictionary<string, object> sqlParameter = new Dictionary<string, object>();
+                                sqlParameter.Add("WorkQty", WorkQty);
+                                sqlParameter.Add("DefectQty", DefectQty);
+                                sqlParameter.Add("sComments", Comments);
+                                sqlParameter.Add("DefectYN", DefectYN);
+                                sqlParameter.Add("InsValue", Lib.ConvertDouble(InsValue));
+                                DataTable dt = DataStore.Instance2.ProcedureToDataTable2("[xp_wkWork_iWorkLog_JoGwang]", sqlParameter, false);
+                                foreach (DataColumn dc in dt.Columns)
+                                {
+                                    if (dc.ColumnName == "error")
+                                    {
+                                        WizCommon.Popup.MyMessageBox.ShowBox("관리자에게 문의", "통신 오류", 3, 1);
+                                        return;
+                                    }
+                                }
+
+                                //IRecSize2 = 0;
+                                strRxData2 = "";
+
+                            }
+                        }
+                    }
+                    else
+                    {
+                        //IRecSize2 += iRecSize; // 데이터 갯수 이동
+                        strRxData2 += Encoding.UTF8.GetString(buff, 0, iRecSize);
+                    }
+                }
+                else
+                {
+                    strRxData = Encoding.UTF8.GetString(buff, 0, iRecSize);
+                    MatchCollection matches = Regex.Matches(strRxData, "\n\r");
+
+                    if (matches.Count > 0)
+                    {
+                        //IRecSize2 = iRecSize;
+                        strRxData = Encoding.UTF8.GetString(buff, 0, iRecSize);
+
+                        matches = Regex.Matches(strRxData, "P1");
+
+                        if (matches.Count > 0)
+                        {
+                            matches = Regex.Matches(strRxData, "P2");
+
+                            //P1,P2 같이 있는 경우
+                            if (matches.Count > 0)
+                            {
+                                //P1
+                                rsvdata = strRxData.Substring(1, 12);
+
+                                if (rsvdata.Contains("-"))
+                                {
+                                    rsvdata = rsvdata.Replace("-", "");
+                                }
+
+                                rsvdata = rsvdata.Replace("\n", "").Replace("\r", "");
+                                //P2
+                                rsvdata2 = strRxData.Substring(13);
+
+                                if (rsvdata2.Contains("-"))
+                                {
+                                    rsvdata2 = rsvdata2.Replace("-", "");
+                                }
+
+                                rsvdata2 = rsvdata2.Replace("\n", "").Replace("\r", "");
+                                //P1
+                                if (rsvdata.Contains("NG"))
+                                {
+                                    DefectQty = 1;
+                                    WorkQty = 0;
+                                    DefectYN = "NG";
+                                }
+                                else
+                                {
+                                    WorkQty = 1;
+                                    DefectQty = 0;
+                                    DefectYN = "OK";
+                                }
+
+                                Comments = rsvdata.Substring(0, 2);
+                                InsValue = rsvdata.Substring(3, 5);
+                                //InsValue = Lib.ConvertDouble(rsvdata.Substring(3, 6));
+
+                                Dictionary<string, object> sqlParameter = new Dictionary<string, object>();
+                                sqlParameter.Add("WorkQty", WorkQty);
+                                sqlParameter.Add("DefectQty", DefectQty);
+                                sqlParameter.Add("sComments", Comments);
+                                sqlParameter.Add("DefectYN", DefectYN);
+                                sqlParameter.Add("InsValue", Lib.ConvertDouble(InsValue));
+                                DataTable dt = DataStore.Instance2.ProcedureToDataTable2("[xp_wkWork_iWorkLog_JoGwang]", sqlParameter, false);
+                                foreach (DataColumn dc in dt.Columns)
+                                {
+                                    if (dc.ColumnName == "error")
+                                    {
+                                        WizCommon.Popup.MyMessageBox.ShowBox("관리자에게 문의", "통신 오류", 3, 1);
+                                        return;
+                                    }
+                                }
+
+                                //P2
+                                if (rsvdata2.Contains("N"))
+                                {
+                                    DefectQty = 1;
+                                    WorkQty = 0;
+                                    DefectYN = "NG";
+                                }
+                                else
+                                {
+                                    WorkQty = 1;
+                                    DefectQty = 0;
+                                    DefectYN = "OK";
+                                }
+
+                                Comments = rsvdata2.Substring(0, 2);
+                                InsValue = rsvdata2.Substring(3, 6);
+                                //InsValue = Lib.ConvertDouble(rsvdata.Substring(3, 6));
+
+                                Dictionary<string, object> sqlParameter2 = new Dictionary<string, object>();
+                                sqlParameter2.Add("WorkQty", WorkQty);
+                                sqlParameter2.Add("DefectQty", DefectQty);
+                                sqlParameter2.Add("sComments", Comments);
+                                sqlParameter2.Add("DefectYN", DefectYN);
+                                sqlParameter2.Add("InsValue", Lib.ConvertDouble(InsValue));
+                                DataTable dt2 = DataStore.Instance2.ProcedureToDataTable2("[xp_wkWork_iWorkLog_JoGwang]", sqlParameter2, false);
+                                foreach (DataColumn dc2 in dt2.Columns)
+                                {
+                                    if (dc2.ColumnName == "error")
+                                    {
+                                        WizCommon.Popup.MyMessageBox.ShowBox("관리자에게 문의", "통신 오류", 3, 1);
+                                        return;
+                                    }
+                                }
+
+                                //IRecSize2 = 0;
+                                strRxData = "";
+                            }
+                            else //P1만 있는 경우
+                            {
+                                //P1
+                                rsvdata = strRxData.Substring(1, 12);
+
+                                if (rsvdata.Contains("-"))
+                                {
+                                    rsvdata = rsvdata.Replace("-", "");
+                                }
+
+                                rsvdata = rsvdata.Replace("\n", "").Replace("\r", "");
+
+                                //P1
+                                if (strRxData.Contains("NG"))
+                                {
+                                    DefectQty = 1;
+                                    WorkQty = 0;
+                                    DefectYN = "NG";
+                                }
+                                else
+                                {
+                                    WorkQty = 1;
+                                    DefectQty = 0;
+                                    DefectYN = "OK";
+                                }
+
+                                Comments = rsvdata.Substring(0, 2);
+                                InsValue = rsvdata.Substring(3, 5);
+                                //InsValue = Lib.ConvertDouble(rsvdata.Substring(3, 6));
+
+                                Dictionary<string, object> sqlParameter = new Dictionary<string, object>();
+                                sqlParameter.Add("WorkQty", WorkQty);
+                                sqlParameter.Add("DefectQty", DefectQty);
+                                sqlParameter.Add("sComments", Comments);
+                                sqlParameter.Add("DefectYN", DefectYN);
+                                sqlParameter.Add("InsValue", Lib.ConvertDouble(InsValue));
+                                DataTable dt = DataStore.Instance2.ProcedureToDataTable2("[xp_wkWork_iWorkLog_JoGwang]", sqlParameter, false);
+                                foreach (DataColumn dc in dt.Columns)
+                                {
+                                    if (dc.ColumnName == "error")
+                                    {
+                                        WizCommon.Popup.MyMessageBox.ShowBox("관리자에게 문의", "통신 오류", 3, 1);
+                                        return;
+                                    }
+                                }
+                            }
+                        }
+                        else //P2만 있는 경우
+                        {
+                            matches = Regex.Matches(strRxData, "P2");
+                            if (matches.Count > 0)
+                            {
+                                rsvdata2 = strRxData.Substring(1, 12);
+                                rsvdata2 = rsvdata2.Replace("\n", "").Replace("\r", "");
+
+                                if (rsvdata2.Contains("N"))
+                                {
+                                    DefectQty = 1;
+                                    WorkQty = 0;
+                                    DefectYN = "NG";
+                                }
+                                else
+                                {
+                                    WorkQty = 1;
+                                    DefectQty = 0;
+                                    DefectYN = "OK";
+                                }
+
+                                Comments = rsvdata2.Substring(0, 2);
+                                InsValue = rsvdata2.Substring(3, 5);
+                                //InsValue = Lib.ConvertDouble(rsvdata.Substring(3, 6));
+
+                                Dictionary<string, object> sqlParameter = new Dictionary<string, object>();
+                                sqlParameter.Add("WorkQty", WorkQty);
+                                sqlParameter.Add("DefectQty", DefectQty);
+                                sqlParameter.Add("sComments", Comments);
+                                sqlParameter.Add("DefectYN", DefectYN);
+                                sqlParameter.Add("InsValue", Lib.ConvertDouble(InsValue));
+                                DataTable dt = DataStore.Instance2.ProcedureToDataTable2("[xp_wkWork_iWorkLog_JoGwang]", sqlParameter, false);
+                                foreach (DataColumn dc in dt.Columns)
+                                {
+                                    if (dc.ColumnName == "error")
+                                    {
+                                        WizCommon.Popup.MyMessageBox.ShowBox("관리자에게 문의", "통신 오류", 3, 1);
+                                        return;
+                                    }
+                                }
+
+                                //IRecSize2 = 0;
+                                strRxData = "";
+
+                            }
+                        }
+                    }
+                    else
+                    {
+                        //IRecSize2 += iRecSize; // 데이터 갯수 이동
+                        strRxData2 += Encoding.UTF8.GetString(buff, 0, iRecSize);
+                    }
+                }
+             
+                CheckForIllegalCrossThreadCalls = false;
+            }
+            catch (Exception excpt)
+            {
+                MessageBox.Show(excpt.ToString());
+            }
+
+        }
+
+        #endregion
 
     }
 }

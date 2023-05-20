@@ -204,6 +204,7 @@
             this.tlpAnother = new System.Windows.Forms.TableLayoutPanel();
             this.textAnotherQty = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
+            this.txtWorkLogDefectQty = new System.Windows.Forms.TextBox();
             this.pnlWorkTimeNTodHis.SuspendLayout();
             this.tlpTodayHisNWorkTime.SuspendLayout();
             this.pnlTodayHis.SuspendLayout();
@@ -2514,12 +2515,20 @@
             this.label23.Text = "일괄수량";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // txtWorkLogDefectQty
+            // 
+            this.txtWorkLogDefectQty.Location = new System.Drawing.Point(1027, 51);
+            this.txtWorkLogDefectQty.Name = "txtWorkLogDefectQty";
+            this.txtWorkLogDefectQty.Size = new System.Drawing.Size(87, 21);
+            this.txtWorkLogDefectQty.TabIndex = 268;
+            // 
             // frm_tprc_Work_U
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1386, 788);
             this.ControlBox = false;
+            this.Controls.Add(this.txtWorkLogDefectQty);
             this.Controls.Add(this.tableLayoutPanel22);
             this.Controls.Add(this.tlpAnother);
             this.Controls.Add(this.chkCycleTime);
@@ -2812,5 +2821,6 @@
         private System.Windows.Forms.TextBox txtSpec;
         private System.Windows.Forms.Label lblspec;
         private System.Windows.Forms.Button btnScanSum;
+        private System.Windows.Forms.TextBox txtWorkLogDefectQty;
     }
 }

@@ -198,8 +198,8 @@ namespace WizIns
         private void btnStart_Click(object sender, EventArgs e)
         {
 
-            if (CheckInspect() == true) 
-            {
+            //if (CheckInspect() == true) 
+            //{
 
                 if (CheckBeforeStart() == false) { return; }
 
@@ -220,7 +220,7 @@ namespace WizIns
                 }
                 #endregion
 
-            }
+            //}
             #region 생산라벨 그대로 포장 하는 경우 (서강정밀)
             //Frm_PopUp_PackingAndOutBox pack = new Frm_PopUp_PackingAndOutBox(lstIns);
             //pack.ShowDialog();

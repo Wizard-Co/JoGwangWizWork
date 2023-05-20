@@ -159,256 +159,274 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SamickSDT\frm_tprc_CardRePrint_U.cs">
+    <Compile Include="JoGwang\frm_tprc_CardRePrint_U.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\frm_tprc_CardRePrint_U.designer.cs">
+    <Compile Include="JoGwang\frm_tprc_CardRePrint_U.designer.cs">
       <DependentUpon>frm_tprc_CardRePrint_U.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\Frm_tprc_PlanInputMolded_Q.cs">
+    <Compile Include="JoGwang\Frm_tprc_PlanInputMolded_Q.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\Frm_tprc_PlanInputMolded_Q.designer.cs">
+    <Compile Include="JoGwang\Frm_tprc_PlanInputMolded_Q.designer.cs">
       <DependentUpon>Frm_tprc_PlanInputMolded_Q.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\frm_tprc_SearchMenuCollection.cs">
+    <Compile Include="JoGwang\frm_tprc_SearchMenuCollection.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\frm_tprc_SearchMenuCollection.designer.cs">
+    <Compile Include="JoGwang\frm_tprc_SearchMenuCollection.designer.cs">
       <DependentUpon>frm_tprc_SearchMenuCollection.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\frm_tprc_setProcess.cs">
+    <Compile Include="JoGwang\frm_tprc_setProcess.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\frm_tprc_setProcess.designer.cs">
+    <Compile Include="JoGwang\frm_tprc_setProcess.designer.cs">
       <DependentUpon>frm_tprc_setProcess.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\frm_tprc_TransCracData.cs">
+    <Compile Include="JoGwang\frm_tprc_TransCracData.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\frm_tprc_TransCracData.Designer.cs">
+    <Compile Include="JoGwang\frm_tprc_TransCracData.Designer.cs">
       <DependentUpon>frm_tprc_TransCracData.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\frm_tprc_UseTool_Q.cs">
+    <Compile Include="JoGwang\frm_tprc_UseTool_Q.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\frm_tprc_UseTool_Q.designer.cs">
+    <Compile Include="JoGwang\frm_tprc_UseTool_Q.designer.cs">
       <DependentUpon>frm_tprc_UseTool_Q.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\frm_tprc_Work_U_Move_Prd.cs">
+    <Compile Include="JoGwang\frm_tprc_WorkCall_Q.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\frm_tprc_Work_U_Move_Prd.Designer.cs">
+    <Compile Include="JoGwang\frm_tprc_WorkCall_Q.designer.cs">
+      <DependentUpon>frm_tprc_WorkCall_Q.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JoGwang\frm_tprc_Work_U_Move_Prd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JoGwang\frm_tprc_Work_U_Move_Prd.Designer.cs">
       <DependentUpon>frm_tprc_Work_U_Move_Prd.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\Lib\FTP_Tester.cs">
+    <Compile Include="JoGwang\Lib\FTP_Tester.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\Lib\FTP_Tester.Designer.cs">
+    <Compile Include="JoGwang\Lib\FTP_Tester.Designer.cs">
       <DependentUpon>FTP_Tester.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_mtr_RemainQtyMoveByLotID_U.cs">
+    <Compile Include="JoGwang\PopUp\frm_mtr_RemainQtyMoveByLotID_U.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_mtr_RemainQtyMoveByLotID_U.Designer.cs">
+    <Compile Include="JoGwang\PopUp\frm_mtr_RemainQtyMoveByLotID_U.Designer.cs">
       <DependentUpon>frm_mtr_RemainQtyMoveByLotID_U.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_mtr_InputMove_U2.cs">
+    <Compile Include="JoGwang\PopUp\frm_mtr_InputMove_U2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_mtr_InputMove_U2.Designer.cs">
+    <Compile Include="JoGwang\PopUp\frm_mtr_InputMove_U2.Designer.cs">
       <DependentUpon>frm_mtr_InputMove_U2.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUpSel_sArticle_ByScan.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUpSel_sArticle_ByScan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUpSel_sArticle_ByScan.Designer.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUpSel_sArticle_ByScan.Designer.cs">
       <DependentUpon>Frm_PopUpSel_sArticle_ByScan.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUpSel_sToolLotNo.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUpSel_sToolLotNo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUpSel_sToolLotNo.Designer.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUpSel_sToolLotNo.Designer.cs">
       <DependentUpon>Frm_PopUpSel_sToolLotNo.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUpSel_sMoldByArticleID.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUpSel_sMoldByArticleID.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUpSel_sMoldByArticleID.Designer.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUpSel_sMoldByArticleID.Designer.cs">
       <DependentUpon>Frm_PopUpSel_sMoldByArticleID.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_PopUp_BringSplitData2.cs">
+    <Compile Include="JoGwang\PopUp\frm_PopUp_BringSplitData2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_PopUp_BringSplitData2.Designer.cs">
+    <Compile Include="JoGwang\PopUp\frm_PopUp_BringSplitData2.Designer.cs">
       <DependentUpon>frm_PopUp_BringSplitData2.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_PopUp_BringSplitData.cs">
+    <Compile Include="JoGwang\PopUp\frm_PopUp_BringSplitData.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_PopUp_BringSplitData.Designer.cs">
+    <Compile Include="JoGwang\PopUp\frm_PopUp_BringSplitData.Designer.cs">
       <DependentUpon>frm_PopUp_BringSplitData.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_PopUp_ChoiceLabelPrintType.cs">
+    <Compile Include="JoGwang\PopUp\frm_PopUp_ChoiceLabelPrintType.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_PopUp_ChoiceLabelPrintType.Designer.cs">
+    <Compile Include="JoGwang\PopUp\frm_PopUp_ChoiceLabelPrintType.Designer.cs">
       <DependentUpon>frm_PopUp_ChoiceLabelPrintType.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUp_ImgArticleInfo.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUp_ImgArticleInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUp_ImgArticleInfo.designer.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUp_ImgArticleInfo.designer.cs">
       <DependentUpon>Frm_PopUp_ImgArticleInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUp_ImgIns2.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUp_ImgIns2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUp_ImgIns2.Designer.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUp_ImgIns2.Designer.cs">
       <DependentUpon>Frm_PopUp_ImgIns2.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUp_ImgIns.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUp_ImgIns.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUp_ImgIns.Designer.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUp_ImgIns.Designer.cs">
       <DependentUpon>Frm_PopUp_ImgIns.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUpSel_sArticle.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUpSel_sArticle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUpSel_sArticle.Designer.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUpSel_sArticle.Designer.cs">
       <DependentUpon>Frm_PopUpSel_sArticle.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUpSel_sArticle_O.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUpSel_sArticle_O.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUpSel_sArticle_O.Designer.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUpSel_sArticle_O.Designer.cs">
       <DependentUpon>Frm_PopUpSel_sArticle_O.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUpSel_AddSave.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUpSel_AddSave.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUpSel_AddSave.Designer.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUpSel_AddSave.Designer.cs">
       <DependentUpon>Frm_PopUpSel_AddSave.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUpSel_sProcess.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUpSel_sProcess.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUpSel_sProcess.Designer.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUpSel_sProcess.Designer.cs">
       <DependentUpon>Frm_PopUpSel_sProcess.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUp_ImgWorkOrder.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUp_ImgWorkOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUp_ImgWorkOrder.designer.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUp_ImgWorkOrder.designer.cs">
       <DependentUpon>Frm_PopUp_ImgWorkOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_Popup_NoWork.cs">
+    <Compile Include="JoGwang\PopUp\frm_Popup_NoWork.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_Popup_NoWork.Designer.cs">
+    <Compile Include="JoGwang\PopUp\frm_Popup_NoWork.Designer.cs">
       <DependentUpon>frm_Popup_NoWork.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_PopUp_Login.cs">
+    <Compile Include="JoGwang\PopUp\frm_PopUp_Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_PopUp_Login.designer.cs">
+    <Compile Include="JoGwang\PopUp\frm_PopUp_Login.designer.cs">
       <DependentUpon>frm_PopUp_Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUp_Packing.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUp_Packing.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUp_Packing.designer.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUp_Packing.designer.cs">
       <DependentUpon>Frm_PopUp_Packing.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_PopUp_PreScanWork2_ScanSum.cs">
+    <Compile Include="JoGwang\PopUp\frm_PopUp_PreScanWork2_ScanSum.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_PopUp_PreScanWork2_ScanSum.designer.cs">
+    <Compile Include="JoGwang\PopUp\frm_PopUp_PreScanWork2_ScanSum.designer.cs">
       <DependentUpon>frm_PopUp_PreScanWork2_ScanSum.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_PopUp_PreScanWork3.cs">
+    <Compile Include="JoGwang\PopUp\frm_PopUp_PreScanWork3.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_PopUp_PreScanWork3.designer.cs">
+    <Compile Include="JoGwang\PopUp\frm_PopUp_PreScanWork3.designer.cs">
       <DependentUpon>frm_PopUp_PreScanWork3.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_PopUp_PreScanWork7.cs">
+    <Compile Include="JoGwang\PopUp\frm_PopUp_PreScanWork7.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_PopUp_PreScanWork7.designer.cs">
+    <Compile Include="JoGwang\PopUp\frm_PopUp_PreScanWork7.designer.cs">
       <DependentUpon>frm_PopUp_PreScanWork7.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_PopUp_PreScanWork4.cs">
+    <Compile Include="JoGwang\PopUp\frm_PopUp_PreScanWork4.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_PopUp_PreScanWork4.designer.cs">
+    <Compile Include="JoGwang\PopUp\frm_PopUp_PreScanWork4.designer.cs">
       <DependentUpon>frm_PopUp_PreScanWork4.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_PopUp_PreScanWork.cs">
+    <Compile Include="JoGwang\PopUp\frm_PopUp_PreScanWork.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_PopUp_PreScanWork.designer.cs">
+    <Compile Include="JoGwang\PopUp\frm_PopUp_PreScanWork.designer.cs">
       <DependentUpon>frm_PopUp_PreScanWork.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_PopUp_PreScanWork2.cs">
+    <Compile Include="JoGwang\PopUp\frm_PopUp_PreScanWork2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_PopUp_PreScanWork2.designer.cs">
+    <Compile Include="JoGwang\PopUp\frm_PopUp_PreScanWork2.designer.cs">
       <DependentUpon>frm_PopUp_PreScanWork2.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_PopUp_PreScanWork_Grid4.cs">
+    <Compile Include="JoGwang\PopUp\frm_PopUp_PreScanWork_Grid4.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_PopUp_PreScanWork_Grid4.designer.cs">
+    <Compile Include="JoGwang\PopUp\frm_PopUp_PreScanWork_Grid4.designer.cs">
       <DependentUpon>frm_PopUp_PreScanWork_Grid4.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUp_sJobIDBy0405.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUp_sJobIDBy0405.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUp_sJobIDBy0405.Designer.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUp_sJobIDBy0405.Designer.cs">
       <DependentUpon>Frm_PopUp_sJobIDBy0405.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_tins_Calendar.cs">
+    <Compile Include="JoGwang\PopUp\Frm_tins_Calendar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_tins_Calendar.Designer.cs">
+    <Compile Include="JoGwang\PopUp\Frm_tins_Calendar.Designer.cs">
       <DependentUpon>Frm_tins_Calendar.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_mtr_RemainMove_Q.cs">
+    <Compile Include="JoGwang\PopUp\frm_mtr_RemainMove_Q.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_mtr_RemainMove_Q.Designer.cs">
+    <Compile Include="JoGwang\PopUp\frm_mtr_RemainMove_Q.Designer.cs">
       <DependentUpon>frm_mtr_RemainMove_Q.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_tprc_UseTool_U.cs">
+    <Compile Include="JoGwang\PopUp\frm_tprc_UseTool_U.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_tprc_UseTool_U.designer.cs">
+    <Compile Include="JoGwang\PopUp\frm_tprc_UseTool_U.designer.cs">
       <DependentUpon>frm_tprc_UseTool_U.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_trpc_MtrLossAlarm_Q.cs">
+    <Compile Include="JoGwang\PopUp\frm_tprc_WorkCall_QU.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_trpc_MtrLossAlarm_Q.Designer.cs">
+    <Compile Include="JoGwang\PopUp\frm_tprc_WorkCall_QU.designer.cs">
+      <DependentUpon>frm_tprc_WorkCall_QU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JoGwang\PopUp\frm_tprc_WorkCall_U.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JoGwang\PopUp\frm_tprc_WorkCall_U.designer.cs">
+      <DependentUpon>frm_tprc_WorkCall_U.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JoGwang\PopUp\frm_trpc_MtrLossAlarm_Q.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JoGwang\PopUp\frm_trpc_MtrLossAlarm_Q.Designer.cs">
       <DependentUpon>frm_trpc_MtrLossAlarm_Q.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_trpc_MtrLossAlarm_U.cs">
+    <Compile Include="JoGwang\PopUp\frm_trpc_MtrLossAlarm_U.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_trpc_MtrLossAlarm_U.Designer.cs">
+    <Compile Include="JoGwang\PopUp\frm_trpc_MtrLossAlarm_U.Designer.cs">
       <DependentUpon>frm_trpc_MtrLossAlarm_U.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\Tools\NativeMethods.cs" />
+    <Compile Include="JoGwang\Tools\NativeMethods.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\Frm_Info.cs">
+    <Compile Include="JoGwang\Frm_Info.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\Frm_Info.Designer.cs">
+    <Compile Include="JoGwang\Frm_Info.Designer.cs">
       <DependentUpon>Frm_Info.cs</DependentUpon>
     </Compile>
     <Compile Include="FTP.cs" />
@@ -439,130 +457,139 @@
     <Compile Include="TableData\wk_Work_sResultMissingWorkQty.cs" />
     <Compile Include="TableData\wk_Work_sResultWithMachineComProcess.cs" />
     <Compile Include="TableData\wk_Work_sWorkDefect.cs" />
-    <EmbeddedResource Include="SamickSDT\Frm_Info.resx">
+    <EmbeddedResource Include="JoGwang\Frm_Info.resx">
       <DependentUpon>Frm_Info.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\frm_tprc_CardRePrint_U.resx">
+    <EmbeddedResource Include="JoGwang\frm_tprc_CardRePrint_U.resx">
       <DependentUpon>frm_tprc_CardRePrint_U.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\Frm_tprc_PlanInputMolded_Q.resx">
+    <EmbeddedResource Include="JoGwang\Frm_tprc_PlanInputMolded_Q.resx">
       <DependentUpon>Frm_tprc_PlanInputMolded_Q.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\frm_tprc_SearchMenuCollection.resx">
+    <EmbeddedResource Include="JoGwang\frm_tprc_SearchMenuCollection.resx">
       <DependentUpon>frm_tprc_SearchMenuCollection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\frm_tprc_setProcess.resx">
+    <EmbeddedResource Include="JoGwang\frm_tprc_setProcess.resx">
       <DependentUpon>frm_tprc_setProcess.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\frm_tprc_TransCracData.resx">
+    <EmbeddedResource Include="JoGwang\frm_tprc_TransCracData.resx">
       <DependentUpon>frm_tprc_TransCracData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\frm_tprc_UseTool_Q.resx">
+    <EmbeddedResource Include="JoGwang\frm_tprc_UseTool_Q.resx">
       <DependentUpon>frm_tprc_UseTool_Q.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\frm_tprc_Work_U_Move_Prd.resx">
+    <EmbeddedResource Include="JoGwang\frm_tprc_WorkCall_Q.resx">
+      <DependentUpon>frm_tprc_WorkCall_Q.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JoGwang\frm_tprc_Work_U_Move_Prd.resx">
       <DependentUpon>frm_tprc_Work_U_Move_Prd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\frm_mtr_RemainQtyMoveByLotID_U.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\frm_mtr_RemainQtyMoveByLotID_U.resx">
       <DependentUpon>frm_mtr_RemainQtyMoveByLotID_U.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\frm_mtr_InputMove_U2.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\frm_mtr_InputMove_U2.resx">
       <DependentUpon>frm_mtr_InputMove_U2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\Frm_PopUpSel_sArticle_ByScan.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\Frm_PopUpSel_sArticle_ByScan.resx">
       <DependentUpon>Frm_PopUpSel_sArticle_ByScan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\Frm_PopUpSel_sToolLotNo.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\Frm_PopUpSel_sToolLotNo.resx">
       <DependentUpon>Frm_PopUpSel_sToolLotNo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\Frm_PopUpSel_sMoldByArticleID.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\Frm_PopUpSel_sMoldByArticleID.resx">
       <DependentUpon>Frm_PopUpSel_sMoldByArticleID.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\Frm_PopUpSel_sPerson.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\Frm_PopUpSel_sPerson.resx">
       <DependentUpon>Frm_PopUpSel_sPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\Frm_PopUpSel_sProcess.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\Frm_PopUpSel_sProcess.resx">
       <DependentUpon>Frm_PopUpSel_sProcess.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\frm_PopUp_BringSplitData2.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\frm_PopUp_BringSplitData2.resx">
       <DependentUpon>frm_PopUp_BringSplitData2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\frm_PopUp_BringSplitData.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\frm_PopUp_BringSplitData.resx">
       <DependentUpon>frm_PopUp_BringSplitData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\frm_PopUp_ChoiceLabelPrintType.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\frm_PopUp_ChoiceLabelPrintType.resx">
       <DependentUpon>frm_PopUp_ChoiceLabelPrintType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\Frm_PopUp_ImgArticleInfo.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\Frm_PopUp_ImgArticleInfo.resx">
       <DependentUpon>Frm_PopUp_ImgArticleInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\Frm_PopUp_ImgIns2.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\Frm_PopUp_ImgIns2.resx">
       <DependentUpon>Frm_PopUp_ImgIns2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\Frm_PopUp_ImgIns.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\Frm_PopUp_ImgIns.resx">
       <DependentUpon>Frm_PopUp_ImgIns.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\Frm_PopUpSel_AddSave.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\Frm_PopUpSel_AddSave.resx">
       <DependentUpon>Frm_PopUpSel_AddSave.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\Frm_PopUpSel_sArticle.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\Frm_PopUpSel_sArticle.resx">
       <DependentUpon>Frm_PopUpSel_sArticle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\Frm_PopUpSel_sArticle_O.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\Frm_PopUpSel_sArticle_O.resx">
       <DependentUpon>Frm_PopUpSel_sArticle_O.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\Frm_PopUpSel_sMachine.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\Frm_PopUpSel_sMachine.resx">
       <DependentUpon>Frm_PopUpSel_sMachine.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\Frm_PopUp_ImgWorkOrder.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\Frm_PopUp_ImgWorkOrder.resx">
       <DependentUpon>Frm_PopUp_ImgWorkOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\frm_Popup_NoWork.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\frm_Popup_NoWork.resx">
       <DependentUpon>frm_Popup_NoWork.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\frm_PopUp_Login.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\frm_PopUp_Login.resx">
       <DependentUpon>frm_PopUp_Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\Frm_PopUp_Packing.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\Frm_PopUp_Packing.resx">
       <DependentUpon>Frm_PopUp_Packing.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\frm_PopUp_PreScanWork2_ScanSum.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\frm_PopUp_PreScanWork2_ScanSum.resx">
       <DependentUpon>frm_PopUp_PreScanWork2_ScanSum.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\frm_PopUp_PreScanWork3.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\frm_PopUp_PreScanWork3.resx">
       <DependentUpon>frm_PopUp_PreScanWork3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\frm_PopUp_PreScanWork7.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\frm_PopUp_PreScanWork7.resx">
       <DependentUpon>frm_PopUp_PreScanWork7.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\frm_PopUp_PreScanWork4.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\frm_PopUp_PreScanWork4.resx">
       <DependentUpon>frm_PopUp_PreScanWork4.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\frm_PopUp_PreScanWork.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\frm_PopUp_PreScanWork.resx">
       <DependentUpon>frm_PopUp_PreScanWork.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\frm_PopUp_PreScanWork2.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\frm_PopUp_PreScanWork2.resx">
       <DependentUpon>frm_PopUp_PreScanWork2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\frm_PopUp_PreScanWork_Grid4.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\frm_PopUp_PreScanWork_Grid4.resx">
       <DependentUpon>frm_PopUp_PreScanWork_Grid4.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\Frm_PopUp_sJobIDBy0405.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\Frm_PopUp_sJobIDBy0405.resx">
       <DependentUpon>Frm_PopUp_sJobIDBy0405.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\Frm_tins_Calendar.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\Frm_tins_Calendar.resx">
       <DependentUpon>Frm_tins_Calendar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\frm_mtr_RemainMove_Q.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\frm_mtr_RemainMove_Q.resx">
       <DependentUpon>frm_mtr_RemainMove_Q.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\frm_tprc_UseTool_U.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\frm_tprc_UseTool_U.resx">
       <DependentUpon>frm_tprc_UseTool_U.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\frm_trpc_MtrLossAlarm_Q.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\frm_tprc_WorkCall_QU.resx">
+      <DependentUpon>frm_tprc_WorkCall_QU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JoGwang\PopUp\frm_tprc_WorkCall_U.resx">
+      <DependentUpon>frm_tprc_WorkCall_U.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JoGwang\PopUp\frm_trpc_MtrLossAlarm_Q.resx">
       <DependentUpon>frm_trpc_MtrLossAlarm_Q.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\frm_trpc_MtrLossAlarm_U.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\frm_trpc_MtrLossAlarm_U.resx">
       <DependentUpon>frm_trpc_MtrLossAlarm_U.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -580,216 +607,216 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="SamickSDT\frmSetting.cs">
+    <Compile Include="JoGwang\frmSetting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\frmSetting.designer.cs">
+    <Compile Include="JoGwang\frmSetting.designer.cs">
       <DependentUpon>frmSetting.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\frm_tprc_setProcess_NoWork.cs">
+    <Compile Include="JoGwang\frm_tprc_setProcess_NoWork.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\frm_tprc_setProcess_NoWork.designer.cs">
+    <Compile Include="JoGwang\frm_tprc_setProcess_NoWork.designer.cs">
       <DependentUpon>frm_tprc_setProcess_NoWork.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\frm_tprc_Work_U.cs">
+    <Compile Include="JoGwang\frm_tprc_Work_U.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\frm_tprc_Work_U.Designer.cs">
+    <Compile Include="JoGwang\frm_tprc_Work_U.Designer.cs">
       <DependentUpon>frm_tprc_Work_U.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\Lib\MES_WTS_Lib.cs" />
-    <Compile Include="SamickSDT\PopUp\Frm_CMKeypad.cs">
+    <Compile Include="JoGwang\Lib\MES_WTS_Lib.cs" />
+    <Compile Include="JoGwang\PopUp\Frm_CMKeypad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_CMKeypad.designer.cs">
+    <Compile Include="JoGwang\PopUp\Frm_CMKeypad.designer.cs">
       <DependentUpon>Frm_CMKeypad.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_CMNumericKeypad.cs">
+    <Compile Include="JoGwang\PopUp\Frm_CMNumericKeypad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_CMNumericKeypad.designer.cs">
+    <Compile Include="JoGwang\PopUp\Frm_CMNumericKeypad.designer.cs">
       <DependentUpon>Frm_CMNumericKeypad.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_DefectYN.cs">
+    <Compile Include="JoGwang\PopUp\frm_DefectYN.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_DefectYN.designer.cs">
+    <Compile Include="JoGwang\PopUp\frm_DefectYN.designer.cs">
       <DependentUpon>frm_DefectYN.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\Frm_InspectionLegend.cs">
+    <Compile Include="JoGwang\Frm_InspectionLegend.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\Frm_InspectionLegend.designer.cs">
+    <Compile Include="JoGwang\Frm_InspectionLegend.designer.cs">
       <DependentUpon>Frm_InspectionLegend.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\Frm_SelectReason.cs">
+    <Compile Include="JoGwang\Frm_SelectReason.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\Frm_SelectReason.designer.cs">
+    <Compile Include="JoGwang\Frm_SelectReason.designer.cs">
       <DependentUpon>Frm_SelectReason.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\frm_tins_InspectAutoResult_Q.cs">
+    <Compile Include="JoGwang\frm_tins_InspectAutoResult_Q.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\frm_tins_InspectAutoResult_Q.Designer.cs">
+    <Compile Include="JoGwang\frm_tins_InspectAutoResult_Q.Designer.cs">
       <DependentUpon>frm_tins_InspectAutoResult_Q.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\frm_tins_InspectAuto_U.cs">
+    <Compile Include="JoGwang\frm_tins_InspectAuto_U.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\frm_tins_InspectAuto_U.Designer.cs">
+    <Compile Include="JoGwang\frm_tins_InspectAuto_U.Designer.cs">
       <DependentUpon>frm_tins_InspectAuto_U.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\frm_tins_InspectText.cs">
+    <Compile Include="JoGwang\frm_tins_InspectText.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\frm_tins_InspectText.Designer.cs">
+    <Compile Include="JoGwang\frm_tins_InspectText.Designer.cs">
       <DependentUpon>frm_tins_InspectText.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\frm_tprc_DailMachineCheck.cs">
+    <Compile Include="JoGwang\frm_tprc_DailMachineCheck.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\frm_tprc_DailMachineCheck.designer.cs">
+    <Compile Include="JoGwang\frm_tprc_DailMachineCheck.designer.cs">
       <DependentUpon>frm_tprc_DailMachineCheck.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\frm_tprc_DailMachineCheck_Q.cs">
+    <Compile Include="JoGwang\frm_tprc_DailMachineCheck_Q.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\frm_tprc_DailMachineCheck_Q.designer.cs">
+    <Compile Include="JoGwang\frm_tprc_DailMachineCheck_Q.designer.cs">
       <DependentUpon>frm_tprc_DailMachineCheck_Q.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\Frm_tprc_Main.cs">
+    <Compile Include="JoGwang\Frm_tprc_Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\Frm_tprc_Main.designer.cs">
+    <Compile Include="JoGwang\Frm_tprc_Main.designer.cs">
       <DependentUpon>Frm_tprc_Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\frm_tprc_NoWork_U.cs">
+    <Compile Include="JoGwang\frm_tprc_NoWork_U.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\frm_tprc_NoWork_U.designer.cs">
+    <Compile Include="JoGwang\frm_tprc_NoWork_U.designer.cs">
       <DependentUpon>frm_tprc_NoWork_U.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\frm_tprc_Result_Q.cs">
+    <Compile Include="JoGwang\frm_tprc_Result_Q.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\frm_tprc_Result_Q.designer.cs">
+    <Compile Include="JoGwang\frm_tprc_Result_Q.designer.cs">
       <DependentUpon>frm_tprc_Result_Q.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\frm_tprc_Work_Defect_U.cs">
+    <Compile Include="JoGwang\frm_tprc_Work_Defect_U.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\frm_tprc_Work_Defect_U.designer.cs">
+    <Compile Include="JoGwang\frm_tprc_Work_Defect_U.designer.cs">
       <DependentUpon>frm_tprc_Work_Defect_U.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp.cs">
+    <Compile Include="JoGwang\PopUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp.designer.cs">
+    <Compile Include="JoGwang\PopUp.designer.cs">
       <DependentUpon>PopUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUpSel.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUpSel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUpSel.Designer.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUpSel.Designer.cs">
       <DependentUpon>Frm_PopUpSel.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUpSel_sPerson.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUpSel_sPerson.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUpSel_sPerson.Designer.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUpSel_sPerson.Designer.cs">
       <DependentUpon>Frm_PopUpSel_sPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUpSel_sMachine.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUpSel_sMachine.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\Frm_PopUpSel_sMachine.Designer.cs">
+    <Compile Include="JoGwang\PopUp\Frm_PopUpSel_sMachine.Designer.cs">
       <DependentUpon>Frm_PopUpSel_sMachine.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_tins_Find.cs">
+    <Compile Include="JoGwang\PopUp\frm_tins_Find.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SamickSDT\PopUp\frm_tins_Find.Designer.cs">
+    <Compile Include="JoGwang\PopUp\frm_tins_Find.Designer.cs">
       <DependentUpon>frm_tins_Find.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\Tools\AutoClosingMessageBox.cs" />
-    <Compile Include="SamickSDT\Tools\CurrentData.cs" />
-    <Compile Include="SamickSDT\Tools\DataDeliver.cs" />
-    <Compile Include="SamickSDT\Tools\FTPAcess.cs" />
-    <Compile Include="SamickSDT\Tools\INI_GS.cs" />
-    <Compile Include="SamickSDT\Tools\TextEvent.cs" />
-    <Compile Include="SamickSDT\UC_ReasonMenuCell.cs">
+    <Compile Include="JoGwang\Tools\AutoClosingMessageBox.cs" />
+    <Compile Include="JoGwang\Tools\CurrentData.cs" />
+    <Compile Include="JoGwang\Tools\DataDeliver.cs" />
+    <Compile Include="JoGwang\Tools\FTPAcess.cs" />
+    <Compile Include="JoGwang\Tools\INI_GS.cs" />
+    <Compile Include="JoGwang\Tools\TextEvent.cs" />
+    <Compile Include="JoGwang\UC_ReasonMenuCell.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SamickSDT\UC_ReasonMenuCell.designer.cs">
+    <Compile Include="JoGwang\UC_ReasonMenuCell.designer.cs">
       <DependentUpon>UC_ReasonMenuCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="SamickSDT\WizWorkLib.cs" />
+    <Compile Include="JoGwang\WizWorkLib.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <EmbeddedResource Include="SamickSDT\frmSetting.resx">
+    <EmbeddedResource Include="JoGwang\frmSetting.resx">
       <DependentUpon>frmSetting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\frm_tprc_setProcess_NoWork.resx">
+    <EmbeddedResource Include="JoGwang\frm_tprc_setProcess_NoWork.resx">
       <DependentUpon>frm_tprc_setProcess_NoWork.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\frm_tprc_Work_U.resx">
+    <EmbeddedResource Include="JoGwang\frm_tprc_Work_U.resx">
       <DependentUpon>frm_tprc_Work_U.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\Frm_CMKeypad.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\Frm_CMKeypad.resx">
       <DependentUpon>Frm_CMKeypad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\Frm_CMNumericKeypad.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\Frm_CMNumericKeypad.resx">
       <DependentUpon>Frm_CMNumericKeypad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\frm_DefectYN.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\frm_DefectYN.resx">
       <DependentUpon>frm_DefectYN.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\Frm_InspectionLegend.resx">
+    <EmbeddedResource Include="JoGwang\Frm_InspectionLegend.resx">
       <DependentUpon>Frm_InspectionLegend.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\Frm_SelectReason.resx">
+    <EmbeddedResource Include="JoGwang\Frm_SelectReason.resx">
       <DependentUpon>Frm_SelectReason.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\frm_tins_InspectAutoResult_Q.resx">
+    <EmbeddedResource Include="JoGwang\frm_tins_InspectAutoResult_Q.resx">
       <DependentUpon>frm_tins_InspectAutoResult_Q.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\frm_tins_InspectAuto_U.resx">
+    <EmbeddedResource Include="JoGwang\frm_tins_InspectAuto_U.resx">
       <DependentUpon>frm_tins_InspectAuto_U.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\frm_tins_InspectText.resx">
+    <EmbeddedResource Include="JoGwang\frm_tins_InspectText.resx">
       <DependentUpon>frm_tins_InspectText.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\frm_tprc_DailMachineCheck.resx">
+    <EmbeddedResource Include="JoGwang\frm_tprc_DailMachineCheck.resx">
       <DependentUpon>frm_tprc_DailMachineCheck.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\frm_tprc_DailMachineCheck_Q.resx">
+    <EmbeddedResource Include="JoGwang\frm_tprc_DailMachineCheck_Q.resx">
       <DependentUpon>frm_tprc_DailMachineCheck_Q.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\Frm_tprc_Main.resx">
+    <EmbeddedResource Include="JoGwang\Frm_tprc_Main.resx">
       <DependentUpon>Frm_tprc_Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\frm_tprc_NoWork_U.resx">
+    <EmbeddedResource Include="JoGwang\frm_tprc_NoWork_U.resx">
       <DependentUpon>frm_tprc_NoWork_U.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\frm_tprc_Result_Q.resx">
+    <EmbeddedResource Include="JoGwang\frm_tprc_Result_Q.resx">
       <DependentUpon>frm_tprc_Result_Q.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\frm_tprc_Work_Defect_U.resx">
+    <EmbeddedResource Include="JoGwang\frm_tprc_Work_Defect_U.resx">
       <DependentUpon>frm_tprc_Work_Defect_U.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp.resx">
+    <EmbeddedResource Include="JoGwang\PopUp.resx">
       <DependentUpon>PopUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\Frm_PopUpSel.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\Frm_PopUpSel.resx">
       <DependentUpon>Frm_PopUpSel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\PopUp\frm_tins_Find.resx">
+    <EmbeddedResource Include="JoGwang\PopUp\frm_tins_Find.resx">
       <DependentUpon>frm_tins_Find.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamickSDT\UC_ReasonMenuCell.resx">
+    <EmbeddedResource Include="JoGwang\UC_ReasonMenuCell.resx">
       <DependentUpon>UC_ReasonMenuCell.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\app.manifest" />
