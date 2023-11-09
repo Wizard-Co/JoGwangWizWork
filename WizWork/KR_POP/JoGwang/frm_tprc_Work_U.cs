@@ -1855,7 +1855,7 @@ namespace WizWork
                                         {
                                             if (UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] < Lib.ConvertDouble(GridData2.Rows[i].Cells["ProdCapa"].Value.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString())) //2021-12-07 dic에 넣어둔 실제로 사용할 하위품 수량이 현재 라벨의 사용 가능량보다 크다면 실제로 사용할 만큼만 넣기
                                             {
-                                                GridData2.Rows[i].Cells["ChildUseQty"].Value = PackQty3 * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString()); //UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] -> PackQty3 2023-03-30
+                                                GridData2.Rows[i].Cells["ChildUseQty"].Value = UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()];//PackQty3 * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString()); //UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] -> PackQty3 2023-03-30
                                                 UnderSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-03 해당 하위품의 수량이 생산 수량만큼 들어갔는 지 확인 하기 위해 추가 
                                                 if (UnderRealSumQty < UnderSumQty) //2021-12-06 많을 경우 필요한 수량만큼 넣기
                                                 {
@@ -1866,7 +1866,7 @@ namespace WizWork
                                             }
                                             else
                                             {
-                                                GridData2.Rows[i].Cells["ChildUseQty"].Value = PackQty3 * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString());
+                                                GridData2.Rows[i].Cells["ChildUseQty"].Value = Lib.ConvertDouble(GridData2.Rows[i].Cells["ProdCapa"].Value.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString());//PackQty3 * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString());
                                                 UnderSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-03 해당 하위품의 수량이 생산 수량만큼 들어갔는 지 확인 하기 위해 추가 
                                                 if (UnderRealSumQty < UnderSumQty) //2021-12-06 많을 경우 필요한 수량만큼 넣기
                                                 {
