@@ -1308,7 +1308,9 @@ namespace WizWork
                                 //P1
                                 rsvdata = strRxData2.Substring(1, 12);
 
-                                MessageBox.Show(rsvdata);
+                                //MessageBox.Show(rsvdata);
+
+                                //MessageBox.Show(strRxData2);
 
                                 if (rsvdata.Contains("-"))
                                 {

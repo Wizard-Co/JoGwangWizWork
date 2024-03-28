@@ -1717,6 +1717,12 @@ namespace WizWork
                             {
                                 UseChildQty.Add(GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim(), Lib.ConvertDouble(txtWorkQty.Text.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString()));
                                 UseRealChildQty.Add(GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim(), Lib.ConvertDouble(txtWorkQty.Text.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString()));
+
+                                if (UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] > PackQty3 * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString())) //2021-12-07 사용할 만큼의 하위품만 넣기 위해 조건 추가
+                                {
+                                    UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] = PackQty3 * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString());
+                                    UseRealChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] = PackQty3 * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString());
+                                }
                             }
                         }
 
@@ -1733,65 +1739,36 @@ namespace WizWork
                             //하위품이 맞는 지 확인
                             if (UseChildQty.ContainsKey(GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()))
                             {
-                                if (UnderRealSumQty != UnderSumQty)
+                                if (UnderRealSumQty != UnderSumQty && UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] != 0)
                                 {
-                                    if (Lib.ConvertDouble(txtWorkQty.Text.ToString()) >= PackQty3)
+                                    if (UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString()] > Lib.ConvertDouble(GridData2.Rows[i].Cells["ProdCapa"].Value.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString())) //2021-12-07 dic에 넣어둔 실제로 사용할 하위품 수량이 현재 라벨의 사용 가능량보다 크다면 실제로 사용할 만큼만 넣기
                                     {
-                                        if (UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] < Lib.ConvertDouble(txtWorkQty.Text.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString())) //2021-12-07 dic에 넣어둔 실제로 사용할 하위품 수량이 현재 라벨의 사용 가능량보다 크다면 실제로 사용할 만큼만 넣기
+                                        GridData2.Rows[i].Cells["ChildUseQty"].Value = Lib.ConvertDouble(GridData2.Rows[i].Cells["ProdCapa"].Value.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString());
+                                        UnderSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-03 해당 하위품의 수량이 생산 수량만큼 들어갔는 지 확인 하기 위해 추가 
+                                        if (UnderRealSumQty < UnderSumQty) //2021-12-06 많을 경우 필요한 수량만큼 넣기
                                         {
-                                            GridData2.Rows[i].Cells["ChildUseQty"].Value = PackQty3 * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString()); //UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] -> PackQty3 2023-03-30
-                                            UnderSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-03 해당 하위품의 수량이 생산 수량만큼 들어갔는 지 확인 하기 위해 추가 
-                                            if (UnderRealSumQty < UnderSumQty) //2021-12-06 많을 경우 필요한 수량만큼 넣기
-                                            {
-                                                GridData2.Rows[i].Cells["ChildUseQty"].Value = (UnderRealSumQty - UnderRealUseSumQty);
-                                            }
-                                            UnderRealUseSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-06 필요한 수량을 찾기 위해 추가
-                                            UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] -= Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString());
+                                            GridData2.Rows[i].Cells["ChildUseQty"].Value = (UnderRealSumQty - UnderRealUseSumQty);
                                         }
-                                        else
-                                        {
-                                            GridData2.Rows[i].Cells["ChildUseQty"].Value = PackQty3 * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString());
-                                            UnderSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-03 해당 하위품의 수량이 생산 수량만큼 들어갔는 지 확인 하기 위해 추가 
-                                            if (UnderRealSumQty < UnderSumQty) //2021-12-06 많을 경우 필요한 수량만큼 넣기
-                                            {
-                                                GridData2.Rows[i].Cells["ChildUseQty"].Value = (UnderRealSumQty - UnderRealUseSumQty);
-                                            }
-                                            UnderRealUseSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-06 필요한 수량을 찾기 위해 추가
-                                            UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] -= Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString());
-                                        }
+                                        UnderRealUseSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-06 필요한 수량을 찾기 위해 추가
+                                        UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString()] -= Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString());
                                     }
                                     else
                                     {
-                                        if (UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] < Lib.ConvertDouble(txtWorkQty.Text.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString())) //2021-12-07 dic에 넣어둔 실제로 사용할 하위품 수량이 현재 라벨의 사용 가능량보다 크다면 실제로 사용할 만큼만 넣기
+                                        GridData2.Rows[i].Cells["ChildUseQty"].Value = UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString()];
+                                        UnderSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-03 해당 하위품의 수량이 생산 수량만큼 들어갔는 지 확인 하기 위해 추가 
+                                        if (UnderRealSumQty < UnderSumQty) //2021-12-06 많을 경우 필요한 수량만큼 넣기
                                         {
-                                            GridData2.Rows[i].Cells["ChildUseQty"].Value = UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()];  //* Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString());  //Lib.ConvertDouble(GridData2.Rows[i].Cells["ProdCapa"].Value.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString());
-                                            UnderSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-03 해당 하위품의 수량이 생산 수량만큼 들어갔는 지 확인 하기 위해 추가 
-                                            if (UnderRealSumQty < UnderSumQty) //2021-12-06 많을 경우 필요한 수량만큼 넣기
-                                            {
-                                                GridData2.Rows[i].Cells["ChildUseQty"].Value = (UnderRealSumQty - UnderRealUseSumQty);
-                                            }
-                                            UnderRealUseSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-06 필요한 수량을 찾기 위해 추가
-                                            UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] -= Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString());
+                                            GridData2.Rows[i].Cells["ChildUseQty"].Value = (UnderRealSumQty - UnderRealUseSumQty);
                                         }
-                                        else
-                                        {
-                                            GridData2.Rows[i].Cells["ChildUseQty"].Value = Lib.ConvertDouble(txtWorkQty.Text.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString());
-                                            UnderSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-03 해당 하위품의 수량이 생산 수량만큼 들어갔는 지 확인 하기 위해 추가 
-                                            if (UnderRealSumQty < UnderSumQty) //2021-12-06 많을 경우 필요한 수량만큼 넣기
-                                            {
-                                                GridData2.Rows[i].Cells["ChildUseQty"].Value = (UnderRealSumQty - UnderRealUseSumQty);
-                                            }
-                                            UnderRealUseSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-06 필요한 수량을 찾기 위해 추가
-                                            UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] -= Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString());
-                                        }
+                                        UnderRealUseSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-06 필요한 수량을 찾기 위해 추가
+                                        UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString()] -= Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString());
                                     }
-                                }
+                                }                               
                             }
                         }
                     }
                     else 
-                    { 
-                        
+                    {                       
                         for (int i = 0; i < GridData2.Rows.Count; i++)
                         {
                             if (UseChildQty.ContainsKey(GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()))
@@ -1825,11 +1802,23 @@ namespace WizWork
                                 {
                                     UseChildQty.Add(GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim(), Lib.ConvertDouble(GridData2.Rows[i].Cells["ProdCapa"].Value.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString()));
                                     UseRealChildQty.Add(GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim(), Lib.ConvertDouble(GridData2.Rows[i].Cells["ProdCapa"].Value.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString()));
+
+                                    if (UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] > PackQty3 * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString())) //2021-12-07 사용할 만큼의 하위품만 넣기 위해 조건 추가
+                                    {
+                                        UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] = PackQty3 * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString());
+                                        UseRealChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] = PackQty3 * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString());
+                                    }
                                 }
                                 else
                                 {
                                     UseChildQty.Add(GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim(), Lib.ConvertDouble(txtWorkQty.Text.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString()));
                                     UseRealChildQty.Add(GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim(), Lib.ConvertDouble(txtWorkQty.Text.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString()));
+
+                                    if (UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] > PackQty3 * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString())) //2021-12-07 사용할 만큼의 하위품만 넣기 위해 조건 추가
+                                    {
+                                        UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] = PackQty3 * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString());
+                                        UseRealChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] = PackQty3 * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString());
+                                    }
                                 }
                             }
                         }
@@ -1849,114 +1838,66 @@ namespace WizWork
                             {
                                 if (GridData2.Rows[i].Cells["ScanExceptYN"].Value.ToString() == "N") 
                                 {
-                                    if (UnderRealSumQty != UnderSumQty)
+                                    if (UnderRealSumQty != UnderSumQty && UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] != 0) //소모량을 전부 소모했으면 소모량 처리 안 함 2023-10-04
                                     {
-                                        if (Lib.ConvertDouble(GridData2.Rows[i].Cells["ProdCapa"].Value.ToString()) >= PackQty3)
+                                        if (UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString()] > Lib.ConvertDouble(GridData2.Rows[i].Cells["ProdCapa"].Value.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString())) //2021-12-07 dic에 넣어둔 실제로 사용할 하위품 수량이 현재 라벨의 사용 가능량보다 크다면 실제로 사용할 만큼만 넣기
                                         {
-                                            if (UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] < Lib.ConvertDouble(GridData2.Rows[i].Cells["ProdCapa"].Value.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString())) //2021-12-07 dic에 넣어둔 실제로 사용할 하위품 수량이 현재 라벨의 사용 가능량보다 크다면 실제로 사용할 만큼만 넣기
+                                            GridData2.Rows[i].Cells["ChildUseQty"].Value = Lib.ConvertDouble(GridData2.Rows[i].Cells["ProdCapa"].Value.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString());
+                                            UnderSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-03 해당 하위품의 수량이 생산 수량만큼 들어갔는 지 확인 하기 위해 추가 
+                                            if (UnderRealSumQty < UnderSumQty) //2021-12-06 많을 경우 필요한 수량만큼 넣기
                                             {
-                                                GridData2.Rows[i].Cells["ChildUseQty"].Value = UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()];//PackQty3 * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString()); //UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] -> PackQty3 2023-03-30
-                                                UnderSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-03 해당 하위품의 수량이 생산 수량만큼 들어갔는 지 확인 하기 위해 추가 
-                                                if (UnderRealSumQty < UnderSumQty) //2021-12-06 많을 경우 필요한 수량만큼 넣기
-                                                {
-                                                    GridData2.Rows[i].Cells["ChildUseQty"].Value = (UnderRealSumQty - UnderRealUseSumQty);
-                                                }
-                                                UnderRealUseSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-06 필요한 수량을 찾기 위해 추가
-                                                UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] -= Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString());
+                                                GridData2.Rows[i].Cells["ChildUseQty"].Value = (UnderRealSumQty - UnderRealUseSumQty);
                                             }
-                                            else
-                                            {
-                                                GridData2.Rows[i].Cells["ChildUseQty"].Value = Lib.ConvertDouble(GridData2.Rows[i].Cells["ProdCapa"].Value.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString());//PackQty3 * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString());
-                                                UnderSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-03 해당 하위품의 수량이 생산 수량만큼 들어갔는 지 확인 하기 위해 추가 
-                                                if (UnderRealSumQty < UnderSumQty) //2021-12-06 많을 경우 필요한 수량만큼 넣기
-                                                {
-                                                    GridData2.Rows[i].Cells["ChildUseQty"].Value = (UnderRealSumQty - UnderRealUseSumQty);
-                                                }
-                                                UnderRealUseSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-06 필요한 수량을 찾기 위해 추가
-                                                UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] -= Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString());
-                                            }
+                                            UnderRealUseSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-06 필요한 수량을 찾기 위해 추가
+                                            UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString()] -= Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString());
                                         }
                                         else
                                         {
-                                            if (UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] < Lib.ConvertDouble(GridData2.Rows[i].Cells["ProdCapa"].Value.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString())) //2021-12-07 dic에 넣어둔 실제로 사용할 하위품 수량이 현재 라벨의 사용 가능량보다 크다면 실제로 사용할 만큼만 넣기
+                                            GridData2.Rows[i].Cells["ChildUseQty"].Value = UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString()];
+                                            UnderSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-03 해당 하위품의 수량이 생산 수량만큼 들어갔는 지 확인 하기 위해 추가 
+                                            if (UnderRealSumQty < UnderSumQty) //2021-12-06 많을 경우 필요한 수량만큼 넣기
                                             {
-                                                GridData2.Rows[i].Cells["ChildUseQty"].Value = UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()];  //* Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString());  //Lib.ConvertDouble(GridData2.Rows[i].Cells["ProdCapa"].Value.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString());
-                                                UnderSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-03 해당 하위품의 수량이 생산 수량만큼 들어갔는 지 확인 하기 위해 추가 
-                                                if (UnderRealSumQty < UnderSumQty) //2021-12-06 많을 경우 필요한 수량만큼 넣기
-                                                {
-                                                    GridData2.Rows[i].Cells["ChildUseQty"].Value = (UnderRealSumQty - UnderRealUseSumQty);
-                                                }
-                                                UnderRealUseSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-06 필요한 수량을 찾기 위해 추가
-                                                UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] -= Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString());
+                                                GridData2.Rows[i].Cells["ChildUseQty"].Value = (UnderRealSumQty - UnderRealUseSumQty);
                                             }
-                                            else
-                                            {
-                                                GridData2.Rows[i].Cells["ChildUseQty"].Value = Lib.ConvertDouble(GridData2.Rows[i].Cells["ProdCapa"].Value.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString());
-                                                UnderSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-03 해당 하위품의 수량이 생산 수량만큼 들어갔는 지 확인 하기 위해 추가 
-                                                if (UnderRealSumQty < UnderSumQty) //2021-12-06 많을 경우 필요한 수량만큼 넣기
-                                                {
-                                                    GridData2.Rows[i].Cells["ChildUseQty"].Value = (UnderRealSumQty - UnderRealUseSumQty);
-                                                }
-                                                UnderRealUseSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-06 필요한 수량을 찾기 위해 추가
-                                                UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] -= Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString());
-                                            }
+                                            UnderRealUseSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-06 필요한 수량을 찾기 위해 추가
+                                            UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString()] -= Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString());
                                         }
+                                    }
+                                    else
+                                    {
+                                        GridData2.Rows[i].Cells["ChildUseQty"].Value = 0;
                                     }
                                 }
                                 else
                                 {
-                                    if (UnderRealSumQty != UnderSumQty)
+                                    if (UnderRealSumQty != UnderSumQty && UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] != 0)
                                     {
-                                        if (Lib.ConvertDouble(txtWorkQty.Text.ToString()) >= PackQty3)
+                                        if (UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString()] > Lib.ConvertDouble(GridData2.Rows[i].Cells["ProdCapa"].Value.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString())) //2021-12-07 dic에 넣어둔 실제로 사용할 하위품 수량이 현재 라벨의 사용 가능량보다 크다면 실제로 사용할 만큼만 넣기
                                         {
-                                            if (UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] < Lib.ConvertDouble(txtWorkQty.Text.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString())) //2021-12-07 dic에 넣어둔 실제로 사용할 하위품 수량이 현재 라벨의 사용 가능량보다 크다면 실제로 사용할 만큼만 넣기
+                                            GridData2.Rows[i].Cells["ChildUseQty"].Value = Lib.ConvertDouble(GridData2.Rows[i].Cells["ProdCapa"].Value.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString());
+                                            UnderSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-03 해당 하위품의 수량이 생산 수량만큼 들어갔는 지 확인 하기 위해 추가 
+                                            if (UnderRealSumQty < UnderSumQty) //2021-12-06 많을 경우 필요한 수량만큼 넣기
                                             {
-                                                GridData2.Rows[i].Cells["ChildUseQty"].Value = PackQty3 * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString()); //UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] -> PackQty3 2023-03-30
-                                                UnderSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-03 해당 하위품의 수량이 생산 수량만큼 들어갔는 지 확인 하기 위해 추가 
-                                                if (UnderRealSumQty < UnderSumQty) //2021-12-06 많을 경우 필요한 수량만큼 넣기
-                                                {
-                                                    GridData2.Rows[i].Cells["ChildUseQty"].Value = (UnderRealSumQty - UnderRealUseSumQty);
-                                                }
-                                                UnderRealUseSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-06 필요한 수량을 찾기 위해 추가
-                                                UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] -= Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString());
+                                                GridData2.Rows[i].Cells["ChildUseQty"].Value = (UnderRealSumQty - UnderRealUseSumQty);
                                             }
-                                            else
-                                            {
-                                                GridData2.Rows[i].Cells["ChildUseQty"].Value = PackQty3 * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString());
-                                                UnderSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-03 해당 하위품의 수량이 생산 수량만큼 들어갔는 지 확인 하기 위해 추가 
-                                                if (UnderRealSumQty < UnderSumQty) //2021-12-06 많을 경우 필요한 수량만큼 넣기
-                                                {
-                                                    GridData2.Rows[i].Cells["ChildUseQty"].Value = (UnderRealSumQty - UnderRealUseSumQty);
-                                                }
-                                                UnderRealUseSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-06 필요한 수량을 찾기 위해 추가
-                                                UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] -= Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString());
-                                            }
+                                            UnderRealUseSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-06 필요한 수량을 찾기 위해 추가
+                                            UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString()] -= Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString());
                                         }
                                         else
                                         {
-                                            if (UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] < Lib.ConvertDouble(txtWorkQty.Text.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString())) //2021-12-07 dic에 넣어둔 실제로 사용할 하위품 수량이 현재 라벨의 사용 가능량보다 크다면 실제로 사용할 만큼만 넣기
+                                            GridData2.Rows[i].Cells["ChildUseQty"].Value = UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString()];
+                                            UnderSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-03 해당 하위품의 수량이 생산 수량만큼 들어갔는 지 확인 하기 위해 추가 
+                                            if (UnderRealSumQty < UnderSumQty) //2021-12-06 많을 경우 필요한 수량만큼 넣기
                                             {
-                                                GridData2.Rows[i].Cells["ChildUseQty"].Value = UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()];  //* Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString());  //Lib.ConvertDouble(GridData2.Rows[i].Cells["ProdCapa"].Value.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString());
-                                                UnderSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-03 해당 하위품의 수량이 생산 수량만큼 들어갔는 지 확인 하기 위해 추가 
-                                                if (UnderRealSumQty < UnderSumQty) //2021-12-06 많을 경우 필요한 수량만큼 넣기
-                                                {
-                                                    GridData2.Rows[i].Cells["ChildUseQty"].Value = (UnderRealSumQty - UnderRealUseSumQty);
-                                                }
-                                                UnderRealUseSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-06 필요한 수량을 찾기 위해 추가
-                                                UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] -= Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString());
+                                                GridData2.Rows[i].Cells["ChildUseQty"].Value = (UnderRealSumQty - UnderRealUseSumQty);
                                             }
-                                            else
-                                            {
-                                                GridData2.Rows[i].Cells["ChildUseQty"].Value = Lib.ConvertDouble(txtWorkQty.Text.ToString()) * Lib.ConvertDouble(GridData2.Rows[i].Cells["ReqQty"].Value.ToString());
-                                                UnderSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-03 해당 하위품의 수량이 생산 수량만큼 들어갔는 지 확인 하기 위해 추가 
-                                                if (UnderRealSumQty < UnderSumQty) //2021-12-06 많을 경우 필요한 수량만큼 넣기
-                                                {
-                                                    GridData2.Rows[i].Cells["ChildUseQty"].Value = (UnderRealSumQty - UnderRealUseSumQty);
-                                                }
-                                                UnderRealUseSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-06 필요한 수량을 찾기 위해 추가
-                                                UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString().Trim()] -= Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString());
-                                            }
+                                            UnderRealUseSumQty += Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString()); //2021-12-06 필요한 수량을 찾기 위해 추가
+                                            UseChildQty[GridData2.Rows[i].Cells["ChildArticleID"].Value.ToString()] -= Lib.ConvertDouble(GridData2.Rows[i].Cells["ChildUseQty"].Value.ToString());
                                         }
+                                    }
+                                    else
+                                    {
+                                        GridData2.Rows[i].Cells["ChildUseQty"].Value = 0;
                                     }
                                 }
                             }
