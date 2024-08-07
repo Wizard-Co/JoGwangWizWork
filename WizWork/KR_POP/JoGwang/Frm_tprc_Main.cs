@@ -269,7 +269,7 @@ namespace WizWork
                         break;
                     case 5://잔량이동처리
                         btnimage(5);
-                        frm_mtr_RemainQtyMoveByLotID_U child4 = new frm_mtr_RemainQtyMoveByLotID_U();
+                        frm_tprc_MoveMenuCollection child4 = new frm_tprc_MoveMenuCollection();
                         //child4.ShowDialog();
                         foreach (Form openForm in Application.OpenForms) // 기존의 실행된건 종료시키기 2023.01.30
                         {
@@ -948,7 +948,7 @@ namespace WizWork
             btnInsInspectAuto.Text = "자주\r\n검사";
             btnWork.Text = "공정\r\n작업";
             btnNoWork.Text = "무작업";
-            btnMove.Text = "잔량\r\n이동";
+            btnMove.Text = "입고/출고\r\n이동";
 
             btnRePrint.Text = "공정전표\r\n재발행";
             btnWorkQ.Text = "조회\r\n묶음";
@@ -1114,7 +1114,6 @@ namespace WizWork
                     GetSerial(m_PortName);
                 }
             }
-
             catch (Exception excpt)
             {
                 WizCommon.Popup.MyMessageBox.ShowBox("Encoder를 확인하세요.", "Port연결 오류.", 3, 1);

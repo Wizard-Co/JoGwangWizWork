@@ -6962,3 +6962,11 @@ D:\업무\프로그램\2022\조광정밀\WizWork\KR_POP\obj\x86\Debug\WizMes_Wor
 D:\업무\프로그램\2022\조광정밀\WizWork\KR_POP\obj\x86\Debug\WizWork.frm_tprc_WorkCall_Q.resources
 D:\업무\프로그램\2022\조광정밀\WizWork\KR_POP\obj\x86\Debug\WizWork.frm_tprc_WorkCall_QU.resources
 D:\업무\프로그램\2022\조광정밀\WizWork\KR_POP\obj\x86\Debug\WizWork.frm_tprc_WorkCall_U.resources
+D:\업무\프로그램\2022\조광정밀\WizWork\KR_POP\obj\x86\Debug\WizWork.frm_mtr_OCStuffin_Q.resources
+D:\업무\프로그램\2022\조광정밀\WizWork\KR_POP\obj\x86\Debug\WizWork.frm_mtr_OCStuffin_U.resources
+D:\업무\프로그램\2022\조광정밀\WizWork\KR_POP\obj\x86\Debug\WizWork.frm_tprc_MoveMenuCollection.resources
+D:\업무\프로그램\2022\조광정밀\WizWork\KR_POP\obj\x86\Debug\WizWork.frm_tprc_OutWareScan_Q.resources
+D:\업무\프로그램\2022\조광정밀\WizWork\KR_POP\obj\x86\Debug\WizWork.frm_tprc_OutWareScan_U.resources
+D:\업무\프로그램\2022\조광정밀\WizWork\KR_POP\obj\x86\Debug\WizWork.Frm_PopUpSel_Common.resources
+D:\업무\프로그램\2022\조광정밀\WizWork\KR_POP\obj\x86\Debug\WizWork.Frm_PopUpSel_sInspectSub.resources
+D:\업무\프로그램\2022\조광정밀\WizWork\KR_POP\obj\x86\Debug\WizWork.Frm_PopUpSel_sOutwareSub.resources

@@ -318,7 +318,7 @@
             this.btnMove.Name = "btnMove";
             this.btnMove.Size = new System.Drawing.Size(77, 84);
             this.btnMove.TabIndex = 10;
-            this.btnMove.Text = "잔량이동";
+            this.btnMove.Text = "입고/출고\r\n이동";
             this.btnMove.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnMove.UseVisualStyleBackColor = false;
             // 

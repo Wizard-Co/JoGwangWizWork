@@ -31,17 +31,19 @@
             this.tlpForm = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnCase1 = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCase6 = new System.Windows.Forms.Button();
-            this.btnCase2 = new System.Windows.Forms.Button();
+            this.btnCase1 = new System.Windows.Forms.Button();
+            this.btnCase7 = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.btnCase3 = new System.Windows.Forms.Button();
             this.btnCase5 = new System.Windows.Forms.Button();
-            this.btnCase7 = new System.Windows.Forms.Button();
+            this.btnCase2 = new System.Windows.Forms.Button();
+            this.btnCase8 = new System.Windows.Forms.Button();
+            this.btnCase9 = new System.Windows.Forms.Button();
             this.tlpForm.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpForm
@@ -75,47 +77,64 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.MintCream;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.tableLayoutPanel2);
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Location = new System.Drawing.Point(3, 68);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(750, 460);
             this.panel1.TabIndex = 236;
             // 
-            // tableLayoutPanel2
+            // tableLayoutPanel1
             // 
-            this.tableLayoutPanel2.ColumnCount = 5;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.Controls.Add(this.btnCase1, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.btnClose, 3, 5);
-            this.tableLayoutPanel2.Controls.Add(this.btnCase2, 3, 3);
-            this.tableLayoutPanel2.Controls.Add(this.btnCase3, 3, 1);
-            this.tableLayoutPanel2.Controls.Add(this.btnCase5, 1, 3);
-            this.tableLayoutPanel2.Controls.Add(this.btnCase6, 1, 6);
-            this.tableLayoutPanel2.Controls.Add(this.btnCase7, 1, 5);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(13, 10);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 7;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.557377F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.59016F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.557377F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.59016F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.557377F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.59016F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.557377F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(718, 427);
-            this.tableLayoutPanel2.TabIndex = 0;
+            this.tableLayoutPanel1.ColumnCount = 5;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.Controls.Add(this.btnCase6, 1, 8);
+            this.tableLayoutPanel1.Controls.Add(this.btnCase1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnCase7, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.btnClose, 3, 7);
+            this.tableLayoutPanel1.Controls.Add(this.btnCase3, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnCase5, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.btnCase2, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.btnCase8, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.btnCase9, 3, 5);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 9;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.154639F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.5567F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.154639F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.5567F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.154639F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.5567F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.154639F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.5567F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.154639F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(745, 455);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // btnCase6
+            // 
+            this.btnCase6.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnCase6.Font = new System.Drawing.Font("맑은 고딕", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnCase6.Location = new System.Drawing.Point(77, 430);
+            this.btnCase6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCase6.Name = "btnCase6";
+            this.btnCase6.Size = new System.Drawing.Size(198, 23);
+            this.btnCase6.TabIndex = 7;
+            this.btnCase6.Text = "Tool 교환 조회";
+            this.btnCase6.UseVisualStyleBackColor = false;
+            this.btnCase6.Visible = false;
+            this.btnCase6.Click += new System.EventHandler(this.btnControl_Click);
             // 
             // btnCase1
             // 
             this.btnCase1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnCase1.Font = new System.Drawing.Font("맑은 고딕", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnCase1.Location = new System.Drawing.Point(74, 30);
+            this.btnCase1.Location = new System.Drawing.Point(77, 25);
             this.btnCase1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCase1.Name = "btnCase1";
             this.btnCase1.Size = new System.Drawing.Size(198, 59);
@@ -124,11 +143,24 @@
             this.btnCase1.UseVisualStyleBackColor = false;
             this.btnCase1.Click += new System.EventHandler(this.btnControl_Click);
             // 
+            // btnCase7
+            // 
+            this.btnCase7.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnCase7.Font = new System.Drawing.Font("맑은 고딕", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnCase7.Location = new System.Drawing.Point(77, 346);
+            this.btnCase7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCase7.Name = "btnCase7";
+            this.btnCase7.Size = new System.Drawing.Size(198, 60);
+            this.btnCase7.TabIndex = 8;
+            this.btnCase7.Text = "현장호출 관리/조회";
+            this.btnCase7.UseVisualStyleBackColor = false;
+            this.btnCase7.Click += new System.EventHandler(this.btnControl_Click);
+            // 
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.LightCoral;
             this.btnClose.Font = new System.Drawing.Font("맑은 고딕", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnClose.Location = new System.Drawing.Point(396, 296);
+            this.btnClose.Location = new System.Drawing.Point(411, 346);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(209, 67);
@@ -137,38 +169,11 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnCase6
-            // 
-            this.btnCase6.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnCase6.Font = new System.Drawing.Font("맑은 고딕", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnCase6.Location = new System.Drawing.Point(74, 401);
-            this.btnCase6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCase6.Name = "btnCase6";
-            this.btnCase6.Size = new System.Drawing.Size(198, 24);
-            this.btnCase6.TabIndex = 7;
-            this.btnCase6.Text = "Tool 교환 조회";
-            this.btnCase6.UseVisualStyleBackColor = false;
-            this.btnCase6.Visible = false;
-            this.btnCase6.Click += new System.EventHandler(this.btnControl_Click);
-            // 
-            // btnCase2
-            // 
-            this.btnCase2.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnCase2.Font = new System.Drawing.Font("맑은 고딕", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnCase2.Location = new System.Drawing.Point(396, 163);
-            this.btnCase2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCase2.Name = "btnCase2";
-            this.btnCase2.Size = new System.Drawing.Size(200, 71);
-            this.btnCase2.TabIndex = 0;
-            this.btnCase2.Text = "자주검사실적 조회";
-            this.btnCase2.UseVisualStyleBackColor = false;
-            this.btnCase2.Click += new System.EventHandler(this.btnControl_Click);
-            // 
             // btnCase3
             // 
             this.btnCase3.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnCase3.Font = new System.Drawing.Font("맑은 고딕", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnCase3.Location = new System.Drawing.Point(396, 30);
+            this.btnCase3.Location = new System.Drawing.Point(411, 25);
             this.btnCase3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCase3.Name = "btnCase3";
             this.btnCase3.Size = new System.Drawing.Size(198, 67);
@@ -181,7 +186,7 @@
             // 
             this.btnCase5.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnCase5.Font = new System.Drawing.Font("맑은 고딕", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnCase5.Location = new System.Drawing.Point(74, 163);
+            this.btnCase5.Location = new System.Drawing.Point(77, 132);
             this.btnCase5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCase5.Name = "btnCase5";
             this.btnCase5.Size = new System.Drawing.Size(198, 60);
@@ -190,24 +195,50 @@
             this.btnCase5.UseVisualStyleBackColor = false;
             this.btnCase5.Click += new System.EventHandler(this.btnControl_Click);
             // 
-            // btnCase7
+            // btnCase2
             // 
-            this.btnCase7.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnCase7.Font = new System.Drawing.Font("맑은 고딕", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnCase7.Location = new System.Drawing.Point(74, 296);
-            this.btnCase7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCase7.Name = "btnCase7";
-            this.btnCase7.Size = new System.Drawing.Size(198, 60);
-            this.btnCase7.TabIndex = 8;
-            this.btnCase7.Text = "현장호출 관리/조회";
-            this.btnCase7.UseVisualStyleBackColor = false;
-            this.btnCase7.Click += new System.EventHandler(this.btnControl_Click);
+            this.btnCase2.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnCase2.Font = new System.Drawing.Font("맑은 고딕", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnCase2.Location = new System.Drawing.Point(411, 132);
+            this.btnCase2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCase2.Name = "btnCase2";
+            this.btnCase2.Size = new System.Drawing.Size(200, 71);
+            this.btnCase2.TabIndex = 0;
+            this.btnCase2.Text = "자주검사실적 조회";
+            this.btnCase2.UseVisualStyleBackColor = false;
+            this.btnCase2.Click += new System.EventHandler(this.btnControl_Click);
+            // 
+            // btnCase8
+            // 
+            this.btnCase8.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnCase8.Font = new System.Drawing.Font("맑은 고딕", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnCase8.Location = new System.Drawing.Point(77, 239);
+            this.btnCase8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCase8.Name = "btnCase8";
+            this.btnCase8.Size = new System.Drawing.Size(198, 59);
+            this.btnCase8.TabIndex = 9;
+            this.btnCase8.Text = "원자재 입고 조회";
+            this.btnCase8.UseVisualStyleBackColor = false;
+            this.btnCase8.Click += new System.EventHandler(this.btnControl_Click);
+            // 
+            // btnCase9
+            // 
+            this.btnCase9.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnCase9.Font = new System.Drawing.Font("맑은 고딕", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnCase9.Location = new System.Drawing.Point(411, 239);
+            this.btnCase9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCase9.Name = "btnCase9";
+            this.btnCase9.Size = new System.Drawing.Size(198, 59);
+            this.btnCase9.TabIndex = 10;
+            this.btnCase9.Text = "제품 출고 조회";
+            this.btnCase9.UseVisualStyleBackColor = false;
+            this.btnCase9.Click += new System.EventHandler(this.btnControl_Click);
             // 
             // frm_tprc_SearchMenuCollection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(831, 596);
+            this.ClientSize = new System.Drawing.Size(1210, 688);
             this.Controls.Add(this.tlpForm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -217,7 +248,7 @@
             this.Load += new System.EventHandler(this.frm_tprc_SearchMenuCollection_Load);
             this.tlpForm.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -227,7 +258,6 @@
         private System.Windows.Forms.TableLayoutPanel tlpForm;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button btnCase2;
         private System.Windows.Forms.Button btnCase1;
         private System.Windows.Forms.Button btnCase3;
@@ -235,5 +265,8 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnCase6;
         private System.Windows.Forms.Button btnCase7;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button btnCase8;
+        private System.Windows.Forms.Button btnCase9;
     }
 }
