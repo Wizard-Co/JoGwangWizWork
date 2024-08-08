@@ -6970,3 +6970,4 @@ D:\업무\프로그램\2022\조광정밀\WizWork\KR_POP\obj\x86\Debug\WizWork.fr
 D:\업무\프로그램\2022\조광정밀\WizWork\KR_POP\obj\x86\Debug\WizWork.Frm_PopUpSel_Common.resources
 D:\업무\프로그램\2022\조광정밀\WizWork\KR_POP\obj\x86\Debug\WizWork.Frm_PopUpSel_sInspectSub.resources
 D:\업무\프로그램\2022\조광정밀\WizWork\KR_POP\obj\x86\Debug\WizWork.Frm_PopUpSel_sOutwareSub.resources
+D:\업무\프로그램\2022\조광정밀\WizWork\KR_POP\obj\x86\Debug\WizWork.frm_tprc_OutWareScan_U_Excel.resources

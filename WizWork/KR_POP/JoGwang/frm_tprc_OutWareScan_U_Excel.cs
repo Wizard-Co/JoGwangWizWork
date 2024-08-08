@@ -8,33 +8,42 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using WizCommon;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Diagnostics;
 
 namespace WizWork
 {
-    public partial class frm_tprc_OutWareScan_U : Form
+    public partial class frm_tprc_OutWareScan_U_Excel : Form
     {
         WizWorkLib Lib = new WizWorkLib();
         string[] Message = new string[2];
         string u_OutwareID = "";
+        string m_OutwareID = ""; //프린터 OutwareID
         private DataSet ds = null;
         LogData LogData = new LogData(); //2022-10-24 log 남기는 함수
         //int u_OutSeq = 0;
 
         int index = 0; //콤보박스 데이터 찾기용 변수
 
-        public frm_tprc_OutWareScan_U()
+        //거래명세서 엑셀 추가
+        Excel.Application excelApp = new Excel.Application();
+        Excel.Workbook workbook;
+        Excel.Worksheet worksheet;
+        Excel.Range range;
+
+        public frm_tprc_OutWareScan_U_Excel()
         {
             InitializeComponent();
         }
 
-        public frm_tprc_OutWareScan_U(string OutwareID)
+        public frm_tprc_OutWareScan_U_Excel(string OutwareID)
         {
             InitializeComponent();
             this.u_OutwareID = OutwareID;
             //this.u_OutSeq = OutSeq;
         }
 
-        private void frm_tprc_OutWareScan_U_Load(object sender, EventArgs e)
+        private void frm_tprc_OutWareScan_U_Excel_Load(object sender, EventArgs e)
         {
             LogData.LogSave(this.GetType().Name, "S"); //log 남기기(로드 S) 2022-10-24
             //데이터 그리드 컬럼 초기화
@@ -60,7 +69,6 @@ namespace WizWork
                 //출고일자
                 mtb_ODate.Text = DateTime.Today.ToString("yyyy-MM-dd");
             }
-
         }
 
         #region 그리드 초기화
@@ -212,7 +220,7 @@ namespace WizWork
 
                 if (chkID.Checked) //ID기준 입력
                 {
-                    if (!(txtBarcode.Text.ToString().ToUpper().Contains("I"))) 
+                    if (!(txtBarcode.Text.ToString().ToUpper().Contains("I")))
                     {
                         //똑같은 입력시 입력 안 되게
                         //추가 선택 후 그리드에 데이터 넣기
@@ -652,12 +660,36 @@ namespace WizWork
 
         #region 저장, 초기화, 닫기 이벤트
 
+        //저장, 명세서 미발행
         private void cmdsave_Click(object sender, EventArgs e)
         {
             if (CheckData()) 
             {
                 if (SaveData())
                 {
+                    chkID.Enabled = true;
+                    chkQty.Enabled = true;
+
+                    Clear();
+                    DataGridClear();
+                    WizCommon.Popup.MyMessageBox.ShowBox("저장이 완료되었습니다.", "[확인]", 0, 1);
+                    LogData.LogSave(this.GetType().Name, "C"); //log 남기기(로드 S) 2022-10-24
+                    return;
+                }
+            }
+        }
+
+        //저장, 명세서 발행
+        private void btnSavePrint_Click(object sender, EventArgs e)
+        {
+            if (CheckData())
+            {
+                if (SaveData())
+                {
+                    //Print
+                    ExcelData();
+                    LogData.LogSave(this.GetType().Name, "P"); //log 남기기(로드 S) 2022-10-24
+
                     chkID.Enabled = true;
                     chkQty.Enabled = true;
 
@@ -1337,14 +1369,15 @@ namespace WizWork
                     {
                         list_Result.RemoveAt(0);
 
-                        //for (int i = 0; i < list_Result.Count; i++)
-                        //{
-                        //    KeyValue kv = list_Result[i];
-                        //    if (kv.key == "OutwareID")
-                        //    {
-                        //        m_StuffinID = kv.value.ToString();
-                        //    }
-                        //}
+                        for (int i = 0; i < list_Result.Count; i++)
+                        {
+                            KeyValue kv = list_Result[i];
+                            if (kv.key == "OutwareID")
+                            {
+                                m_OutwareID = kv.value.ToString();
+                            }
+                        }
+
                         DataStore.Instance.CloseConnection(); //2021-09-23 DB 커넥트 연결 해제
                         return true;
                     }
@@ -1757,9 +1790,225 @@ namespace WizWork
             cboPerson.DisplayMember = "Name";
         }
 
+
+
+
         #endregion
 
+        #region 프린터 함수(Excel)
+
+        private void ExcelData()
+        {
+            string g_sPrinterName = "";
+            g_sPrinterName = Lib.GetDefaultPrinter();
+            List<string> Printlist_Data = null;     //상단
+            List<string> Printlist_Data_s = null;   //하단
+
+            int i = 0; //구분
+
+            try
+            {
+                //상단
+                Printlist_Data = new List<string>();
+                Printlist_Data_s = new List<string>();
+
+                Dictionary<string, object> sqlParameter = new Dictionary<string, object>();
+
+                sqlParameter.Add("OrderID", txtOrderID.Text.ToString());          //orderID
+                sqlParameter.Add("OutwareID", m_OutwareID);                       //OutwareID
+
+                DataTable dt = DataStore.Instance.ProcedureToDataTable("xp_WizWork_sPrint_Excel", sqlParameter, false);
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    //공급받는자
+                    Printlist_Data.Add(Lib.CheckNull(dr["OutDate"].ToString())); //거래일자
+                    Printlist_Data.Add(Lib.CheckNull(dr["KCustom"].ToString()));//상호(거래처)
+                    Printlist_Data.Add(Lib.CheckNull(dr["Address1"].ToString())); //사업장 주소
+                    Printlist_Data.Add(Lib.CheckNull(dr["Chief"].ToString()));//성명
+                    Printlist_Data.Add("");//합계금액
+
+                    //공급자
+                    Printlist_Data.Add(Lib.CheckNull(dr["CompanyNo"].ToString()));//등록번호
+                    Printlist_Data.Add(Lib.CheckNull(dr["KCompany"].ToString()));//상호
+                    Printlist_Data.Add(Lib.CheckNull(dr["PChief"].ToString()));//대표자
+                    Printlist_Data.Add(Lib.CheckNull(dr["PAddress"].ToString()));//사업장주소
+                    Printlist_Data.Add(Lib.CheckNull(dr["Phone1"].ToString()));//전화
+                    Printlist_Data.Add(Lib.CheckNull(dr["FaxNo"].ToString()));//팩스
+                }
+
+                DataStore.Instance.CloseConnection();
+
+                //하단
+                Dictionary<string, object> sqlParameter1 = new Dictionary<string, object>();
+
+                sqlParameter1.Add("OrderID", txtOrderID.Text.ToString());          //orderID
+                sqlParameter1.Add("OutwareID", m_OutwareID);                       //OutwareID
+
+                DataTable dt2 = DataStore.Instance.ProcedureToDataTable("xp_WizWork_sPrint_Detail_Excel", sqlParameter1, false);
+                if (dt2.Rows.Count > 0)
+                {
+                    foreach (DataRow dr2 in dt2.Rows)
+                    {
+                        i++;
+                        Printlist_Data_s.Add(i.ToString());               //구분
+                        Printlist_Data_s.Add(Lib.CheckNull(dr2["BuyerArticleNo"].ToString()));       //품번
+                        Printlist_Data_s.Add(Lib.CheckNull(dr2["UnitClssName"].ToString()));         //단위
+                        Printlist_Data_s.Add(Lib.CheckNull(dr2["OutQty"].ToString()));               //납품수량
+                        Printlist_Data_s.Add(Lib.CheckNull(dr2["LabelID"].ToString()));              //LOTNO
+                    }
+                }
+
+                DataStore.Instance.CloseConnection();
+
+                ExcelPrint(Printlist_Data, Printlist_Data_s, i);
+            }
+            catch (Exception excpt)
+            {
+                Message[0] = "[오류]";
+                Message[1] = string.Format("오류!관리자에게 문의\r\n{0}", excpt.Message);
+                WizCommon.Popup.MyMessageBox.ShowBox(Message[1], Message[0], 0, 1);
+            }
+            finally
+            {
+                DataStore.Instance.CloseConnection(); //2021-09-23 DB 커넥트 연결 해제
+            }
+        }
+
+        private void ExcelPrint(List<string> Printlist_Data, List<string> Printlist_Data_s, int Num)
+        {
+            try
+            {
+                excelApp = null;
+                excelApp = new Excel.Application();
+
+                string excelopen_path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location) + "\\org_신규출고거래명세표.xlsx"; //2024.08.08 old : org_신규출고거래명세표(현영 거래명세서 양식).xlsx
+
+                workbook = excelApp.Workbooks.Open(excelopen_path, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                                                Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                                                Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                                                Type.Missing, Type.Missing);
+
+                worksheet = (Excel.Worksheet)workbook.Sheets["Form"];
+
+                //공급받는자
+                //거래일자
+                range = worksheet.get_Range("C4", "H4");
+                range.Value2 = Printlist_Data[0].Substring(0, 4) + "." + Printlist_Data[0].Substring(4, 2) + "." + Printlist_Data[0].Substring(6, 2);
+                range.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+                //상호
+                range = worksheet.get_Range("G5", "P6");
+                range.Value2 = Printlist_Data[1];
+                range.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+                //사업장주소
+                range = worksheet.get_Range("G7", "R8");
+                range.Value2 = Printlist_Data[2];
+                range.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+                //성명
+                range = worksheet.get_Range("G9", "R10");
+                range.Value2 = Printlist_Data[3];
+                range.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+                //공급자
+                //등록번호
+                range = worksheet.get_Range("W5", "AK6");
+                range.Value2 = Printlist_Data[5];
+                range.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+                //상호
+                range = worksheet.get_Range("W7", "AC8");
+                range.Value2 = Printlist_Data[6];
+                range.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+                //성명
+                range = worksheet.get_Range("AF7", "AK8");
+                range.Value2 = Printlist_Data[7];
+                range.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+                //사업장주소
+                range = worksheet.get_Range("W9", "AK10");
+                range.Value2 = Printlist_Data[8];
+                range.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+                //전화
+                range = worksheet.get_Range("W11", "AC12");
+                range.Value2 = Printlist_Data[9];
+                range.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+                //팩스
+                range = worksheet.get_Range("AF11", "AK12");
+                range.Value2 = Printlist_Data[10];
+                range.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+                //합계주소
+
+                //품번이 다를 경우 다음줄에 입력
+                //Num이 1이 아니면 다음줄이 있음
+                //하단
+                //구분
+                for (int Count = 0; Count < Num; Count++)
+                {
+                    //range = worksheet.get_Range("D" + (14 + Num).ToString() , "F" + (14 + Num).ToString());
+                    //range.Value2 = Printlist_Data_s[0];
+                    //range.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+                    //품번
+                    range = worksheet.get_Range("G" + (14 + Num).ToString(), "M" + (14 + Num).ToString());
+                    range.Value2 = Printlist_Data_s[1];
+                    range.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+                    //단위
+                    range = worksheet.get_Range("N" + (14 + Num).ToString(), "O" + (14 + Num).ToString());
+                    range.Value2 = Printlist_Data_s[2];
+                    range.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+                    //납품수량
+                    range = worksheet.get_Range("P" + (14 + Num).ToString(), "Q" + (14 + Num).ToString());
+                    range.Value2 = Printlist_Data_s[3];
+                    range.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+                    //LOTNO
+                    range = worksheet.get_Range("W" + (14 + Num).ToString(), "AC" + (14 + Num).ToString());
+                    range.Value2 = Printlist_Data_s[4];
+                    range.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                }
+
+                worksheet.PrintOutEx(1, 1, 1);
+
+                workbook.Close(false);
+                excelApp.Quit();
+
+                //excel process를 전부 닫음(실행중인 다른 excel도 전부 닫힘)
+                Process[] process = Process.GetProcessesByName("EXCEL");
+                foreach (Process p in process)
+                {
+                    if (!string.IsNullOrEmpty(p.ProcessName))
+                    {
+                        try
+                        {
+                            p.Kill();
+                        }
+                        catch
+                        {
+
+                        }
+                    }
+                }
 
 
+
+            }
+            catch (Exception e)
+            {
+                WizCommon.Popup.MyMessageBox.ShowBox(string.Format("오류! 관리자에게 문의\r\n{0}", e.Message), "[오류]", 0, 1);
+            }
+
+        }
+
+
+        #endregion
     }
 }

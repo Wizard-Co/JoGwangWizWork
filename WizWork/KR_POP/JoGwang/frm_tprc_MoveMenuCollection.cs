@@ -42,9 +42,19 @@ namespace WizWork
                         form = child1;
                         break;
                     case 2:     //제품출고
-                        frm_tprc_OutWareScan_U child2 = new frm_tprc_OutWareScan_U();
-                        form = child2;
-                        break;
+                        //null이 아니라면 엑셀 설치 됨
+                        if (Frm_tprc_Main.excelKey != null)
+                        {
+                            frm_tprc_OutWareScan_U_Excel child2 = new frm_tprc_OutWareScan_U_Excel();
+                            form = child2;
+                            break;
+                        }
+                        else
+                        {
+                            frm_tprc_OutWareScan_U child2 = new frm_tprc_OutWareScan_U();
+                            form = child2;
+                            break;
+                        }
                     case 3:     //금형입고
                         frm_mtr_RemainMove_Q child3 = new frm_mtr_RemainMove_Q();
                         form = child3;

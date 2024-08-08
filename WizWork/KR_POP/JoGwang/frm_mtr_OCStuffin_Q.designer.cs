@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.dgvStuffin = new System.Windows.Forms.DataGridView();
             this.txtArticle = new System.Windows.Forms.TextBox();
             this.chkArticle = new System.Windows.Forms.CheckBox();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -62,12 +63,11 @@
             this.txtSGbnTag = new System.Windows.Forms.TextBox();
             this.txtArticleGbnTag = new System.Windows.Forms.TextBox();
             this.chkArticleGbn = new System.Windows.Forms.CheckBox();
-            this.dgvStuffin = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.tlpSumQty.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStuffin)).BeginInit();
+            this.tlpSumQty.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -102,6 +102,20 @@
             this.splitContainer1.Size = new System.Drawing.Size(1012, 592);
             this.splitContainer1.SplitterDistance = 67;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // dgvStuffin
+            // 
+            this.dgvStuffin.AllowUserToAddRows = false;
+            this.dgvStuffin.AllowUserToDeleteRows = false;
+            this.dgvStuffin.AllowUserToResizeRows = false;
+            this.dgvStuffin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStuffin.Location = new System.Drawing.Point(10, 141);
+            this.dgvStuffin.Name = "dgvStuffin";
+            this.dgvStuffin.RowHeadersVisible = false;
+            this.dgvStuffin.RowTemplate.Height = 23;
+            this.dgvStuffin.Size = new System.Drawing.Size(893, 407);
+            this.dgvStuffin.TabIndex = 247;
+            this.dgvStuffin.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStuffin_CellClick);
             // 
             // txtArticle
             // 
@@ -529,20 +543,6 @@
             this.chkArticleGbn.Visible = false;
             this.chkArticleGbn.Click += new System.EventHandler(this.chkArticleGbn_Click);
             // 
-            // dgvStuffin
-            // 
-            this.dgvStuffin.AllowUserToAddRows = false;
-            this.dgvStuffin.AllowUserToDeleteRows = false;
-            this.dgvStuffin.AllowUserToResizeRows = false;
-            this.dgvStuffin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStuffin.Location = new System.Drawing.Point(10, 141);
-            this.dgvStuffin.Name = "dgvStuffin";
-            this.dgvStuffin.RowHeadersVisible = false;
-            this.dgvStuffin.RowTemplate.Height = 23;
-            this.dgvStuffin.Size = new System.Drawing.Size(893, 407);
-            this.dgvStuffin.TabIndex = 247;
-            this.dgvStuffin.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStuffin_CellClick);
-            // 
             // frm_mtr_OCStuffin_Q
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -569,9 +569,9 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStuffin)).EndInit();
             this.tlpSumQty.ResumeLayout(false);
             this.tlpSumQty.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStuffin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

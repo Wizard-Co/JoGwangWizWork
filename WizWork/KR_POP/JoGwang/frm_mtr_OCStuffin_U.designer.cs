@@ -133,7 +133,6 @@
             this.splitContainer1.Panel2.Controls.Add(this.cboLoc);
             this.splitContainer1.Panel2.Controls.Add(this.cboStuffinPerson);
             this.splitContainer1.Panel2.Controls.Add(this.btnStuffinPerson);
-            this.splitContainer1.Panel2.Controls.Add(this.cmdprint);
             this.splitContainer1.Panel2.Controls.Add(this.btnInput);
             this.splitContainer1.Panel2.Controls.Add(this.btnCal_IDate);
             this.splitContainer1.Panel2.Controls.Add(this.btnAllR);
@@ -321,12 +320,13 @@
             // cmdprint
             // 
             this.cmdprint.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cmdprint.Location = new System.Drawing.Point(928, 59);
+            this.cmdprint.Location = new System.Drawing.Point(1018, 244);
             this.cmdprint.Name = "cmdprint";
-            this.cmdprint.Size = new System.Drawing.Size(75, 82);
+            this.cmdprint.Size = new System.Drawing.Size(61, 82);
             this.cmdprint.TabIndex = 258;
             this.cmdprint.Text = "입고\r\n라벨\r\n발행";
             this.cmdprint.UseVisualStyleBackColor = true;
+            this.cmdprint.Visible = false;
             this.cmdprint.Click += new System.EventHandler(this.cmdprint_Click);
             // 
             // btnInput
@@ -478,11 +478,11 @@
             // cmdsave
             // 
             this.cmdsave.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cmdsave.Location = new System.Drawing.Point(928, 147);
+            this.cmdsave.Location = new System.Drawing.Point(928, 59);
             this.cmdsave.Name = "cmdsave";
             this.cmdsave.Size = new System.Drawing.Size(75, 82);
             this.cmdsave.TabIndex = 244;
-            this.cmdsave.Text = "저장\r\n(라벨\r\n발행X)";
+            this.cmdsave.Text = "저장\r\n";
             this.cmdsave.UseVisualStyleBackColor = true;
             this.cmdsave.Click += new System.EventHandler(this.cmdsave_Click);
             // 
@@ -988,6 +988,7 @@
             this.Controls.Add(this.btnmtrWeightPerBonsu);
             this.Controls.Add(this.txtCustomTag);
             this.Controls.Add(this.txtSGbnTag);
+            this.Controls.Add(this.cmdprint);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.txtLoc);
             this.Controls.Add(this.txtSGbn);

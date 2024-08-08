@@ -66,6 +66,9 @@ namespace WizWork
         public static Sub_TWkResult Sub_TWkResult = new Sub_TWkResult();
         public static Sub_TWkResultArticleChild Sub_TWkResultArticleChild = new Sub_TWkResultArticleChild();
         LogData LogData = new LogData(); //2022-06-21 log 남기는 함수
+
+        public static RegistryKey excelKey = null; //2024-02-07 엑셀 설치 여부 확인
+
         //public static TagPrint tagPrint = new TagPrint();
         public static GlobalVar gv = new GlobalVar();
         //정적 클래스 선언
@@ -174,6 +177,8 @@ namespace WizWork
         {
             try
             {
+                Frm_tprc_Main.excelKey = Registry.ClassesRoot.OpenSubKey(@"Excel.Application");
+
                 // 직책정보 초기화
                 g_tBase.ResablyID = "";
 
